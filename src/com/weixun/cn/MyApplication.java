@@ -7,6 +7,8 @@ import android.net.ConnectivityManager;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 
+import com.weixun.cn.util.ImageLoaderHelper;
+
 public class MyApplication extends Application{
 
 	static MyApplication app;
@@ -19,6 +21,7 @@ public class MyApplication extends Application{
 		app = this;
 
 		initScreenData();
+		ImageLoaderHelper.initImageLoader(this);//0610
 		initManas();
 
 		// initActivityLcCallback();
