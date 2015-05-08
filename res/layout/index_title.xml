@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+   			android:layout_height="match_parent">
+
+<TextView
+    android:id="@+id/index_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:text="微醺世界"
+    android:textSize="20sp" >
+
+</TextView>
+
+
+
+<Button
+    android:id="@+id/search"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_centerVertical="true"
+    android:text="查找" 
+    android:background="#00000000"
+    android:textColor="#FFFFFF"
+    android:textSize="12sp"/>
+
+<Button
+    android:id="@+id/publish"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:text="发布" 
+    android:background="#00000000"
+    android:textColor="#FFFFFF"
+    android:textSize="12sp"
+    android:layout_toLeftOf="@id/search"/>
+
+</RelativeLayout>
