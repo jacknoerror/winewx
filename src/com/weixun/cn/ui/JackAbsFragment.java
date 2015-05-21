@@ -9,13 +9,13 @@ import android.view.ViewGroup;
 public abstract class JackAbsFragment extends Fragment {
 	protected final String TAG 	 = getClass().getSimpleName();
 	
-	protected LayoutInflater mInflator;
+	protected LayoutInflater mInflater;
 	protected View mView;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		mInflator= inflater;
+		mInflater= inflater;
 //		if(!inflate()) return null;
 		inflate(container);// 
 		initView( );
@@ -25,7 +25,7 @@ public abstract class JackAbsFragment extends Fragment {
 	private boolean inflate(ViewGroup container){
 		int rid = getLayoutRid();
 		if(rid>0){
-			mView =  mInflator.inflate(getLayoutRid(), container,false);
+			mView =  mInflater.inflate(getLayoutRid(), container,false);
 		}
 		return rid>0;
 	}

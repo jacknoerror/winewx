@@ -1,6 +1,5 @@
  package com.weixun.cn.ui;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
@@ -18,6 +17,8 @@ import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabContentFactory;
 import android.widget.TextView;
 
+import com.jacktao.utils.JackWindowTitleManager;
+import com.jacktao.utils.JackWindowTitleManager.JackTitleConst;
 import com.weixun.cn.MyData;
 import com.weixun.cn.R;
 import com.weixun.cn.ui.tabs.TabCabinet;
@@ -53,6 +54,7 @@ public class HubActivity extends FragmentActivity implements OnTabChangeListener
 
 	
 	long backtime;
+	private JackWindowTitleManager jwtMana;
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if(keyCode==KeyEvent.KEYCODE_BACK ){
@@ -88,6 +90,8 @@ public class HubActivity extends FragmentActivity implements OnTabChangeListener
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.a_hub);
+        jwtMana = new JackWindowTitleManager(this);
+        jwtMana.setComponent(JackTitleConst.CUSTOMTITLE_ID_MIDTEXT, "微醺世界");
 //        singleBack = getIntent().getBooleanExtra(YftValues.EXTRAS_SINGLEBACK, false);
         jftcl = new JackFragmentTabChangedHelper(this, R.id.realtabcontent);
         for(int i=0;i<CLAZZZ.length;i++){

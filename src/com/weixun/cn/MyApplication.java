@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 
+import com.jacktao.utils.JackWindowTitleManager;
 import com.weixun.cn.util.ImageLoaderHelper;
 
 public class MyApplication extends Application{
@@ -23,7 +24,7 @@ public class MyApplication extends Application{
 		initScreenData();
 		ImageLoaderHelper.initImageLoader(this);//0610
 		initManas();
-
+		JackWindowTitleManager.init(R.color.maincolor, R.drawable.ic_launcher);
 		// initActivityLcCallback();
 	}
 	

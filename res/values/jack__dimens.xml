@@ -1,6 +1,0 @@
-<resources>
-    <dimen name="height_bottom_bar">54dp</dimen>
-    
-    <dimen name="textsize_min">12sp</dimen>
-    
-</resources>
