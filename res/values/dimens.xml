@@ -6,4 +6,6 @@
 
     <dimen name="height_bottom_bar">54dp</dimen>
     
+    <dimen name="sidelong">80dp</dimen>
+    
 </resources>

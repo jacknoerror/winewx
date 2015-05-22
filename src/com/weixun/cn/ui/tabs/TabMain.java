@@ -1,7 +1,6 @@
 package com.weixun.cn.ui.tabs;
 
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -9,8 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bocclottery.ui.custom.getter.ViewPagerGetter;
-import com.bocclottery.ui.custom.getter.ViewPagerGetter.IvInVpImpl;
+import com.jacktao.ui.custom.getter.ViewPagerGetter;
+import com.jacktao.ui.custom.getter.ViewPagerGetter.IvInVpImpl;
 import com.weixun.cn.R;
 import com.weixun.cn.ui.ContentAbstractFragment;
 
@@ -39,6 +38,7 @@ public class TabMain extends ContentAbstractFragment {
 	public void initView() {
 		
 		mList = new ListView(getActivity());
+		mView = mList;
 		mList.addHeaderView(initViewPager());
 		initMsgBar();
 		requestData();
@@ -90,8 +90,8 @@ public class TabMain extends ContentAbstractFragment {
 		// TODO Auto-generated method stub
 		//顶部滑动图片数据 FIXME 造数据
 		TempTopPic[] tps = new TempTopPic[3];
-		for(TempTopPic ttp : tps){
-			ttp = new TempTopPic("https://www.baidu.com/img/bdlogo.png", null);
+		for(int i=0;i<tps.length;i++){
+			tps[i] = new TempTopPic("https://www.baidu.com/img/bdlogo.png", null);
 		}
 		vpGet.setup(tps);
 		//新消息栏

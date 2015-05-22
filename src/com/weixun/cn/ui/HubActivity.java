@@ -30,12 +30,12 @@ import com.weixun.cn.util.JackUtils;
 
 public class HubActivity extends FragmentActivity implements OnTabChangeListener{
 	final String TAG = HubActivity.class.getName();
-	final int[]	ICONS = new int[]{R.drawable.ic_launcher ,
-								R.drawable.ic_launcher ,
-								R.drawable.ic_launcher ,
-								R.drawable.ic_launcher,
-								R.drawable.ic_launcher  };
-	final String[] TITLES= new String[]{"首页","纺织聊","工作台","资讯","个人中心"};
+	final int[]	ICONS = new int[]{R.drawable.selector_hubtab0 ,
+								R.drawable.selector_hubtab1 ,
+								R.drawable.selector_hubtab2 ,
+								R.drawable.selector_hubtab3,
+								R.drawable.selector_hubtab4  };
+	final String[] TITLES= new String[]{"首页","聊天","酒柜","发现","我的"};
 	final Class[] CLAZZZ=new Class[]{
 			TabMain.class,
 			TabChat.class,
@@ -141,6 +141,9 @@ public class HubActivity extends FragmentActivity implements OnTabChangeListener
     @Override
 	public void onTabChanged(String tabId) {
     	if(null!=jftcl) jftcl.onTabChanged(tabId);
+    	if(null!=jwtMana){
+			jwtMana.setComponent(JackTitleConst.CUSTOMTITLE_ID_MIDTEXT, tabId);
+		}
 	}
     
     

@@ -10,11 +10,12 @@
 
     <application
         android:allowBackup="true"
+        android:name="com.weixun.cn.MyApplication"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.weixun.cn.ui.HubActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.weixun.cn.ui.WebviewActivity"></activity>
     </application>
     <supports-screens 
 		android:largeScreens="true" 
@@ -29,5 +31,6 @@
 		android:smallScreens="true" 
 		android:anyDensity="true"/>
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
 </manifest>
