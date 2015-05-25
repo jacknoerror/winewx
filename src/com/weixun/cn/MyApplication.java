@@ -24,7 +24,7 @@ public class MyApplication extends Application{
 		initScreenData();
 		ImageLoaderHelper.initImageLoader(this);//0610
 		initManas();
-		JackWindowTitleManager.init(R.color.maincolor, R.drawable.ic_launcher);
+		JackWindowTitleManager.init(R.color.maincolor, R.drawable.btn_back);
 		// initActivityLcCallback();
 	}
 	

@@ -1,5 +1,9 @@
- package com.weixun.cn.ui;
+package com.weixun.cn.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
@@ -10,6 +14,8 @@ import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.TabHost;
@@ -21,6 +27,8 @@ import com.jacktao.utils.JackWindowTitleManager;
 import com.jacktao.utils.JackWindowTitleManager.JackTitleConst;
 import com.weixun.cn.MyData;
 import com.weixun.cn.R;
+import com.weixun.cn.bean.CmListItem;
+import com.weixun.cn.ui.tabs.PublishActivity;
 import com.weixun.cn.ui.tabs.TabCabinet;
 import com.weixun.cn.ui.tabs.TabChat;
 import com.weixun.cn.ui.tabs.TabDiscover;
@@ -28,51 +36,35 @@ import com.weixun.cn.ui.tabs.TabMain;
 import com.weixun.cn.ui.tabs.TabMy;
 import com.weixun.cn.util.JackUtils;
 
-public class HubActivity extends FragmentActivity implements OnTabChangeListener{
+public class HubActivity extends FragmentActivity implements
+		OnTabChangeListener {
 	final String TAG = HubActivity.class.getName();
-	final int[]	ICONS = new int[]{R.drawable.selector_hubtab0 ,
-								R.drawable.selector_hubtab1 ,
-								R.drawable.selector_hubtab2 ,
-								R.drawable.selector_hubtab3,
-								R.drawable.selector_hubtab4  };
-	final String[] TITLES= new String[]{"首页","聊天","酒柜","发现","我的"};
-	final Class[] CLAZZZ=new Class[]{
-			TabMain.class,
-			TabChat.class,
-			TabCabinet.class,
-			TabDiscover.class,
-			TabMy.class
-	};
-	
+	final int[] ICONS = new int[] { R.drawable.selector_hubtab0,
+			R.drawable.selector_hubtab1, R.drawable.selector_hubtab2,
+			R.drawable.selector_hubtab3, R.drawable.selector_hubtab4 };
+	final String[] TITLES = new String[] { "首页", "聊天", "酒柜", "发现", "我的" };
+	final Class[] CLAZZZ = new Class[] { TabMain.class, TabChat.class,
+			TabCabinet.class, TabDiscover.class, TabMy.class };
+
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 	}
-	
+
 	private TabHost mTabHost;
 	private JackFragmentTabChangedHelper jftcl;
 
-	
 	long backtime;
 	private JackWindowTitleManager jwtMana;
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if(keyCode==KeyEvent.KEYCODE_BACK ){
-			
-			/*JackUtils.showDialog(this, "确定要退到登录界面么？", new DialogInterface.OnClickListener() {
-				
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					NetStrategies.logout();
-					HubActivity.this.finish();
-					dialog.dismiss();
-					mTabHost =null;//
-				}
-			});*/
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+
 			long currentTimeMillis = System.currentTimeMillis();
-			if(currentTimeMillis-backtime>2000){
+			if (currentTimeMillis - backtime > 2000) {
 				JackUtils.showToast(this, "再按一次退出网上轻纺城");
-			}else{
+			} else {
 				Intent intent = new Intent(Intent.ACTION_MAIN);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				intent.addCategory(Intent.CATEGORY_HOME);
@@ -81,40 +73,51 @@ public class HubActivity extends FragmentActivity implements OnTabChangeListener
 			backtime = currentTimeMillis;
 			return true;
 		}
-		
+
 		return super.onKeyDown(keyCode, event);
 	}
-	
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {  
-        super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.a_hub);
-        jwtMana = new JackWindowTitleManager(this);
-        jwtMana.setComponent(JackTitleConst.CUSTOMTITLE_ID_MIDTEXT, "微醺世界");
-//        singleBack = getIntent().getBooleanExtra(YftValues.EXTRAS_SINGLEBACK, false);
-        jftcl = new JackFragmentTabChangedHelper(this, R.id.realtabcontent);
-        for(int i=0;i<CLAZZZ.length;i++){
-        	jftcl.addTabPack(jftcl.new TabPack(ICONS[i], TITLES[i], CLAZZZ[i]));
-        }
-        mTabHost = (TabHost)findViewById(android.R.id.tabhost);
-        mTabHost.setup( );
-        mTabHost.setOnTabChangedListener(this);
-        for(int i=0;i<CLAZZZ.length;i++){
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		setContentView(R.layout.a_hub);
+		jwtMana = new JackWindowTitleManager(this);
+		jwtMana.setComponent(JackTitleConst.CUSTOMTITLE_ID_MIDTEXT, "微醺世界");
+		ImageView img = new ImageView(this);
+		img.setImageResource(R.drawable.index_xie);
+		img.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				MyPortal.justGo(HubActivity.this, PublishActivity.class);
+			}
+		});
+		jwtMana.addRight(img);
+
+		// singleBack = getIntent().getBooleanExtra(YftValues.EXTRAS_SINGLEBACK,
+		// false);
+		jftcl = new JackFragmentTabChangedHelper(this, R.id.realtabcontent);
+		for (int i = 0; i < CLAZZZ.length; i++) {
+			jftcl.addTabPack(jftcl.new TabPack(ICONS[i], TITLES[i], CLAZZZ[i]));
+		}
+		mTabHost = (TabHost) findViewById(android.R.id.tabhost);
+		mTabHost.setup();
+		mTabHost.setOnTabChangedListener(this);
+		for (int i = 0; i < CLAZZZ.length; i++) {
 			addTabBtn(i);
 		}
-//        if(!singleBack)YftData.data().setHostTab(mTabHost);
-        
-//        int tabId = getIntent().getIntExtra(YftValues.EXTRAS_HUB_TAB, 0);
-//        User me = MyData.data().getMe();
-//		int defaultTab = me==null||me.getMemberType()<=1?0:2;//0725
-        int defaultTab =0;
+		// if(!singleBack)YftData.data().setHostTab(mTabHost);
+
+		// int tabId = getIntent().getIntExtra(YftValues.EXTRAS_HUB_TAB, 0);
+		// User me = MyData.data().getMe();
+		// int defaultTab = me==null||me.getMemberType()<=1?0:2;//0725
+		int defaultTab = 0;
 		mTabHost.setCurrentTab(defaultTab);
-        
-        MyData.data().setTabHost(mTabHost);
-        
-		
-    }
+
+		MyData.data().setTabHost(mTabHost);
+
+	}
 
 	static AlertDialog showDialog(Context context, String hintContent,
 			DialogInterface.OnClickListener positiveListener) {
@@ -136,47 +139,97 @@ public class HubActivity extends FragmentActivity implements OnTabChangeListener
 
 		return builder.show();
 	}
-    
-    
-    @Override
+
+	@Override
 	public void onTabChanged(String tabId) {
-    	if(null!=jftcl) jftcl.onTabChanged(tabId);
-    	if(null!=jwtMana){
+		if (null != jftcl)
+			jftcl.onTabChanged(tabId);
+		if (null != jwtMana) {
 			jwtMana.setComponent(JackTitleConst.CUSTOMTITLE_ID_MIDTEXT, tabId);
 		}
 	}
-    
-    
-	private void addTabBtn(int index){
-    	if(index>=TITLES.length||index>=ICONS.length) return;
-    	View view = LayoutInflater.from(this).inflate(R.layout.layout_tab, null);
-    	
-    	ImageView img = (ImageView)view.findViewById(R.id.img_tab);
-    	TextView text = (TextView)view.findViewById(R.id.tv_tab);
-    	
-    	text.setTextColor(getResources().getColorStateList(R.color.selector_tab_textcolor));
-    	img.setImageResource(ICONS[index]);
-    	img.setScaleType(ScaleType.CENTER_INSIDE);
-    	text.setText(TITLES[index]);
-    	
-    	mTabHost.addTab(mTabHost.newTabSpec(TITLES[index])
-    			.setIndicator(view)
-    			.setContent(new DummiContiFac(getBaseContext())));
-    }
-	
-	
-	public class DummiContiFac implements TabContentFactory{
-    	Context dcContext;
-    	public DummiContiFac(Context context){
-    		dcContext = context;
-    	}
+
+	private void addTabBtn(int index) {
+		if (index >= TITLES.length || index >= ICONS.length)
+			return;
+		View view = LayoutInflater.from(this)
+				.inflate(R.layout.layout_tab, null);
+
+		ImageView img = (ImageView) view.findViewById(R.id.img_tab);
+		TextView text = (TextView) view.findViewById(R.id.tv_tab);
+
+		text.setTextColor(getResources().getColorStateList(
+				R.color.selector_tab_textcolor));
+		img.setImageResource(ICONS[index]);
+		img.setScaleType(ScaleType.CENTER_INSIDE);
+		text.setText(TITLES[index]);
+
+		mTabHost.addTab(mTabHost.newTabSpec(TITLES[index]).setIndicator(view)
+				.setContent(new DummiContiFac(getBaseContext())));
+	}
+
+	public class DummiContiFac implements TabContentFactory {
+		Context dcContext;
+
+		public DummiContiFac(Context context) {
+			dcContext = context;
+		}
 
 		@Override
 		public View createTabContent(String tag) {
 			return new View(dcContext);
 		}
-    	
-    }
 
+	}
+
+	static class CabHolder {
+		// TODO
+	}
+
+	public static class OkListAdapter extends BaseAdapter {
+		List<CmListItem> contentList;
+		private LayoutInflater aInflater;
+		
+		public OkListAdapter(List<CmListItem> list,Activity mActi) {
+			if (null == list)
+				list = new ArrayList<CmListItem>();
+			contentList = list;
+			aInflater = LayoutInflater.from(mActi);
+		}
+		
+		@Override
+		public int getCount() {
+			return contentList.size();
+		}
+		
+		@Override
+		public Object getItem(int position) {
+			return contentList.get(position);
+		}
+		
+		@Override
+		public long getItemId(int position) {
+			return position;
+		}
+		
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			CabHolder holder = null;
+			// View view = null;
+			if (null == convertView) {
+				convertView = aInflater.inflate(R.layout.listitem_common, null);// ?
+				holder = new CabHolder();
+				convertView.setTag(holder);
+			} else {
+				holder = (CabHolder) convertView.getTag();
+			}
+			// setup
+			CmListItem u = contentList.get(position);
+			// TODO
+			
+			return convertView;
+		}
+		
+}
 
 }

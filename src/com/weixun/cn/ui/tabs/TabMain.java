@@ -1,8 +1,12 @@
 package com.weixun.cn.ui.tabs;
 
+import java.util.ArrayList;
+
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -11,7 +15,11 @@ import android.widget.TextView;
 import com.jacktao.ui.custom.getter.ViewPagerGetter;
 import com.jacktao.ui.custom.getter.ViewPagerGetter.IvInVpImpl;
 import com.weixun.cn.R;
+import com.weixun.cn.bean.CmListItem;
 import com.weixun.cn.ui.ContentAbstractFragment;
+import com.weixun.cn.ui.HubActivity;
+import com.weixun.cn.ui.HubActivity.OkListAdapter;
+import com.weixun.cn.ui.MyPortal;
 
 /**
  * @author TaoTao
@@ -40,11 +48,20 @@ public class TabMain extends ContentAbstractFragment {
 		mList = new ListView(getActivity());
 		mView = mList;
 		mList.addHeaderView(initViewPager());
-		initMsgBar();
+		mList.addHeaderView(initMsgBar());
+		mList.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				MyPortal.goWebView(getActivity(),"url");
+				
+			}
+		});
 		requestData();
 	}
 
-	private void initMsgBar() {
+	private View initMsgBar() {
 		// TODO Auto-generated method stub
 		View vMB = mInflater.inflate(R.layout.layout_main_msgbar, null);
 		btnMsgFrd = (Button) vMB.findViewById(R.id.index_friend_button);
@@ -58,9 +75,15 @@ public class TabMain extends ContentAbstractFragment {
 				 btnMsgFrd.setSelected(v== btnMsgFrd);
 				 btnMsgAll.setSelected(v== btnMsgAll);
 				 // TODO Auto-generated method stub
-				 
+				 if(v == index_news){
+					 MyPortal.justGo(getActivity(), MessageActivity.class);
+				 }
 			}
 		};
+		btnMsgFrd.setOnClickListener(bListener);
+		btnMsgAll.setOnClickListener(bListener);
+		index_news.setOnClickListener(bListener);
+		return vMB;
 	}
 
 	private View initViewPager() {
@@ -101,6 +124,13 @@ public class TabMain extends ContentAbstractFragment {
 //		}end if	TODO else View.INVISIBLE
 		//更新列表
 		//TODO
+		ArrayList<CmListItem> dataList = new ArrayList<CmListItem>();
+		dataList.add(new CmListItem());
+		dataList.add(new CmListItem());
+		dataList.add(new CmListItem());
+		dataList.add(new CmListItem());
+		mList.setAdapter(new OkListAdapter(dataList,(HubActivity)getActivity()));//
+		
 	}
 
 	/**
