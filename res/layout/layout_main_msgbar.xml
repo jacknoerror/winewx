@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:paddingTop="@dimen/jack_margin"
+        android:paddingBottom="@dimen/jack_margin"
+        android:layout_height="54dp" >
+
+        <Button
+            android:id="@+id/index_friend_button"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="26dp"
+            android:background="@drawable/selector_bg_msgbtn"
+            android:textSize="12sp"
+            android:text="朋友" />
+        <Button
+            android:id="@+id/index_all_button"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="66dp"
+            android:background="@drawable/selector_bg_msgbtn"
+            android:textSize="12sp"
+            android:text="全部" />
+
+        <TextView
+            android:id="@+id/index_news"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="23dp"
+            android:layout_toRightOf="@+id/index_all_button"
+            android:background="@drawable/textview_index_background"
+            android:text="3条消息"
+            android:gravity="center"
+            android:textColor="#FFFFFF" />
+
+    </RelativeLayout>

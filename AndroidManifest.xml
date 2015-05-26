@@ -26,6 +26,7 @@
         <activity android:name="com.weixun.cn.ui.WebviewActivity"></activity>
         <activity android:name="com.weixun.cn.ui.tabs.PublishActivity"></activity>
         <activity android:name="com.weixun.cn.ui.tabs.MessageActivity"></activity>
+        <activity android:name="com.weixun.cn.ui.tabs.LCLStartActivity"></activity>
     </application>
     <supports-screens 
 		android:largeScreens="true" 

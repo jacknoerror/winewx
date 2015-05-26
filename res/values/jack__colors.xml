@@ -1,3 +1,4 @@
 <resources>
     <color name="maincolor">#4C5E76</color>
+    <color name="common_grey_light">#1111</color>
 </resources>

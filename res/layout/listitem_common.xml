@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="@dimen/jack_margin"
+    >
+    <CheckBox 
+        android:id="@+id/cb_li_cab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+        
+    <ImageView 
+        android:id="@+id/img_li_cab"
+        android:layout_width="@dimen/sidelong"
+        android:layout_height="@dimen/sidelong"
+        android:src="@drawable/ic_launcher"
+        />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView 
+            android:id="@+id/tv_li_cab_desc"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="ok visldcnvk kdox jacc pppedvnkd, kindkjq;'s be."
+            />
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+            <TextView 
+                android:id="@+id/tv_li_cab_att1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="attr0"
+                />
+            <TextView 
+                android:id="@+id/tv_li_cab_att2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="attr0"
+                />
+            <TextView 
+                android:id="@+id/tv_li_cab_att3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="attr0"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
