@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_grey_light"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/jack_margin_tripple"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@android:color/white"
+        android:divider="@drawable/divider_h_grey_png"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/jack_margin"
+        android:paddingRight="@dimen/jack_margin"
+        android:showDividers="middle" >
+
+        <RelativeLayout
+            android:id="@+id/layout_myinfo_icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/jack_margin_double" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/jacktextsize_senior"
+                android:text="头像" />
+
+            <ImageView
+                android:id="@+id/img_myinfo_icon"
+                android:layout_width="@dimen/sidelo"
+                android:layout_height="@dimen/sidelo"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_launcher" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_myinfo_nick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/jack_margin_double" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="昵称"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/jacktextsize_senior" />
+
+            <TextView
+                android:id="@+id/tv_myinfo_nick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="小盆友" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_myinfo_wxno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/jack_margin_double" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="微醺号"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/jacktextsize_senior" />
+
+            <TextView
+                android:id="@+id/tv_myinfo_wxno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="12306" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_myinfo_qrcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/jack_margin_double" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="二维码名片"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/jacktextsize_senior" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/speak_erweima"
+                android:text="12306" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_myinfo_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/jack_margin_double" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的地址"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/jacktextsize_senior" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/jack_margin_tripple"
+        android:background="@android:color/white"
+        android:divider="@drawable/divider_h_grey_png"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/jack_margin"
+        android:paddingRight="@dimen/jack_margin"
+        android:showDividers="middle" >
+        <RelativeLayout
+            android:id="@+id/layout_myinfo_sex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/jack_margin_double" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="性别"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/jacktextsize_senior" />
+
+            <TextView
+                android:id="@+id/tv_myinfo_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="男" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layout_myinfo_dist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/jack_margin_double" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="所在地区"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/jacktextsize_senior" />
+
+            <TextView
+                android:id="@+id/tv_myinfo_dist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="浙江 杭州" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layout_myinfo_signiture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/jack_margin_double" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="个性签名"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/jacktextsize_senior" />
+
+            <TextView
+                android:id="@+id/tv_myinfo_signiture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="2222222" />
+        </RelativeLayout>
+        
+    </LinearLayout>
+
+</LinearLayout>

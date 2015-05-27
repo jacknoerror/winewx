@@ -6,5 +6,7 @@ public class Const {
 	public static int SCREEN_WIDTH;
 	public static int SCREEN_HEIGHT;
 	public static final String EXTRA_WEBVIEW_URL = "webview_url";
+	public static final String EXTRA_EDITACTI_TITLE = "edittitle";
+	public static final String EXTRA_EDITACTI_CUR = "editdef";
 
 }

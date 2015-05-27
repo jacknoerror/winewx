@@ -33,5 +33,11 @@ public class MyPortal {
 		activity.startActivity(intent);
 	}
 	
-	
+	public static void goEditActi(Activity activity, String title, String curString){
+		Intent intent = new Intent();
+		intent.putExtra(Const.EXTRA_EDITACTI_TITLE, title);
+		intent.putExtra(Const.EXTRA_EDITACTI_CUR, curString);
+		intent.setClass(activity, SingleEditActivity.class);
+		activity.startActivity(intent);
+	}
 }

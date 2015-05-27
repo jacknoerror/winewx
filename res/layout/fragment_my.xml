@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_grey_light"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/layout_my_my"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/jack_margin_tripple"
+        android:layout_marginTop="@dimen/jack_margin_double"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/jack_margin" >
+
+        <ImageView
+            android:id="@+id/img_my_icon"
+            android:layout_width="@dimen/sidelong"
+            android:layout_height="@dimen/sidelong"
+            android:src="@drawable/ic_launcher" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/tv_my_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="红酒酷"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/jacktextsize_senior" />
+
+            <TextView
+                android:id="@+id/tv_my_wxno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_my_name"
+                android:text="微醺号：XXXX"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/jacktextsize_elder" />
+
+            <ImageView
+                android:id="@+id/img_my_qrcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/speak_erweima" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/jack_margin_tripple"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/jack_margin" 
+        android:paddingRight="@dimen/jack_margin" 
+        android:divider="@drawable/divider_h_grey_png"
+        android:showDividers="middle"
+        >
+        <TextView 
+            android:id="@+id/tv_my_setting"
+            android:text="设置"
+            android:drawableLeft="@drawable/my_shezhi"
+            android:drawablePadding="@dimen/jack_margin"
+            style="@style/MySettingTextview"
+            />
+        <TextView 
+            android:id="@+id/tv_my_contact"
+            android:text="通讯录"
+            android:drawableLeft="@drawable/my_tongxunlu"
+            android:drawablePadding="@dimen/jack_margin"
+            style="@style/MySettingTextview"
+            />
+    </LinearLayout>
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/jack_margin_tripple"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/jack_margin" 
+        android:paddingRight="@dimen/jack_margin" 
+        android:divider="@drawable/divider_h_grey_png"
+        android:showDividers="middle"
+        >
+        <TextView 
+            android:id="@+id/tv_my_mylcl"
+            android:text="我的拼箱"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            style="@style/MySettingTextview"
+            />
+        <TextView 
+            android:id="@+id/tv_my_mywx"
+            android:text="我的微醺"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            style="@style/MySettingTextview"
+            />
+        <TextView 
+            android:id="@+id/tv_my_myact"
+            android:text="我的活动"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            style="@style/MySettingTextview"
+            />
+        <TextView 
+            android:id="@+id/tv_my_mycab"
+            android:text="我的酒柜"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            style="@style/MySettingTextview"
+            />
+        </LinearLayout>
+</LinearLayout>

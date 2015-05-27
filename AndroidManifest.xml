@@ -27,6 +27,8 @@
         <activity android:name="com.weixun.cn.ui.tabs.PublishActivity"></activity>
         <activity android:name="com.weixun.cn.ui.tabs.MessageActivity"></activity>
         <activity android:name="com.weixun.cn.ui.tabs.LCLStartActivity"></activity>
+        <activity android:name="com.weixun.cn.ui.tabs.MyInfoActivity"></activity>
+        <activity android:name="com.weixun.cn.ui.SingleEditActivity"></activity>
     </application>
     <supports-screens 
 		android:largeScreens="true" 
