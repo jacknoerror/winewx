@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.weixun.cn.R;
 import com.weixun.cn.ui.ContentAbstractFragment;
 import com.weixun.cn.ui.MyPortal;
+import com.weixun.cn.ui.RadioGroupListActivity;
 
 public class TabMy extends ContentAbstractFragment implements OnClickListener{
 
@@ -37,10 +38,11 @@ public class TabMy extends ContentAbstractFragment implements OnClickListener{
 			
 			break;
 		case R.id.tv_my_myact://我的活动
+			MyPortal.justGo(getActivity(), RadioGroupListActivity.class);
 			
 			break;
 		case R.id.tv_my_mylcl://我的拼箱
-			
+			MyPortal.justGo(getActivity(), RadioGroupListActivity.class);
 			break;
 		case R.id.layout_my_my://个人设置
 			MyPortal.justGo(getActivity(), MyInfoActivity.class);

@@ -31,7 +31,6 @@ public class MyInfoActivity extends Activity implements OnClickListener {
 		((TextView)findViewById(R.id.tv_myinfo_signiture)).setText("122222");
 		
 		findViewById(R.id.layout_myinfo_addr).setOnClickListener(this);
-		findViewById(R.id.layout_myinfo_addr).setOnClickListener(this);
         findViewById(R.id.layout_myinfo_dist).setOnClickListener(this);
         findViewById(R.id.layout_myinfo_icon).setOnClickListener(this);
         findViewById(R.id.layout_myinfo_nick).setOnClickListener(this);
