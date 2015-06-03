@@ -8,5 +8,6 @@ public class Const {
 	public static final String EXTRA_WEBVIEW_URL = "webview_url";
 	public static final String EXTRA_EDITACTI_TITLE = "edittitle";
 	public static final String EXTRA_EDITACTI_CUR = "editdef";
+	public static final String EXTRA_EXRGB = "exrgb";
 
 }

@@ -40,4 +40,12 @@ public class MyPortal {
 		intent.setClass(activity, SingleEditActivity.class);
 		activity.startActivity(intent);
 	}
+
+	public static void goRadioActivity(Activity activity, int type) {
+		Intent intent = new Intent();
+		intent.putExtra(Const.EXTRA_EXRGB, type);
+		intent.setClass(activity, RadioGroupListActivity.class);
+		activity.startActivity(intent);
+		
+	}
 }

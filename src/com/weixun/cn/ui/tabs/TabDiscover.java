@@ -31,7 +31,7 @@ public class TabDiscover extends ContentAbstractFragment implements OnClickListe
 		//TODO
 		switch (v.getId()) {
 		case R.id.layout_find1:
-			
+			MyPortal.justGo(getActivity(), ActMainActivity.class);
 			break;
 		case R.id.layout_find2:
 			MyPortal.justGo(getActivity(), LCLStartActivity.class);

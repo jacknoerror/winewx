@@ -26,8 +26,8 @@ public class TabMy extends ContentAbstractFragment implements OnClickListener{
 		mView.findViewById(R.id.tv_my_mywx).setOnClickListener(this);
 		mView.findViewById(R.id.tv_my_setting).setOnClickListener(this);
 		
-		((TextView) mView.findViewById(R.id.tv_my_name)).setText("红酒酒");
-		((TextView) mView.findViewById(R.id.tv_my_wxno)).setText("我的微醺号：12306");
+		((TextView) mView.findViewById(R.id.tv_my_name)).setText("红酒酒");//
+		((TextView) mView.findViewById(R.id.tv_my_wxno)).setText("我的微醺号：12306");//
 	}
 
 	@Override
@@ -35,14 +35,14 @@ public class TabMy extends ContentAbstractFragment implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.tv_my_contact://通讯录
-			
+			//用环信的通讯录	TODO
 			break;
 		case R.id.tv_my_myact://我的活动
 			MyPortal.justGo(getActivity(), RadioGroupListActivity.class);
 			
 			break;
 		case R.id.tv_my_mylcl://我的拼箱
-			MyPortal.justGo(getActivity(), RadioGroupListActivity.class);
+			MyPortal.goRadioActivity(getActivity(),1);
 			break;
 		case R.id.layout_my_my://个人设置
 			MyPortal.justGo(getActivity(), MyInfoActivity.class);
