@@ -33,6 +33,7 @@
         <activity android:name="com.weixun.cn.ui.SingleEditActivity"></activity>
         <activity android:name="com.weixun.cn.ui.RadioGroupListActivity"></activity>
         <activity android:name="com.weixun.cn.ui.tabs.ActMainActivity"></activity>
+        <activity android:name="com.weixun.cn.ui.tabs.ActDetailActivity"></activity>
     </application>
     <supports-screens 
 		android:largeScreens="true" 
