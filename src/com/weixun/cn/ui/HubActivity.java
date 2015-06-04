@@ -63,7 +63,7 @@ public class HubActivity extends FragmentActivity implements
 
 			long currentTimeMillis = System.currentTimeMillis();
 			if (currentTimeMillis - backtime > 2000) {
-				JackUtils.showToast(this, "再按一次退出网上轻纺城");
+				JackUtils.showToast(this, "再按一次退出微醺世界");
 			} else {
 				Intent intent = new Intent(Intent.ACTION_MAIN);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
