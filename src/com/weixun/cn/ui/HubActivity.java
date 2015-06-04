@@ -34,7 +34,7 @@ import com.weixun.cn.ui.tabs.TabChat;
 import com.weixun.cn.ui.tabs.TabDiscover;
 import com.weixun.cn.ui.tabs.TabMain;
 import com.weixun.cn.ui.tabs.TabMy;
-import com.weixun.cn.util.JackUtils;
+import com.weixun.cn.util.WxUtils;
 
 public class HubActivity extends FragmentActivity implements
 		OnTabChangeListener {
@@ -63,7 +63,7 @@ public class HubActivity extends FragmentActivity implements
 
 			long currentTimeMillis = System.currentTimeMillis();
 			if (currentTimeMillis - backtime > 2000) {
-				JackUtils.showToast(this, "再按一次退出网上轻纺城");
+				WxUtils.showToast(this, "再按一次退出网上轻纺城");
 			} else {
 				Intent intent = new Intent(Intent.ACTION_MAIN);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -90,7 +90,14 @@ public class HubActivity extends FragmentActivity implements
 
 			@Override
 			public void onClick(View v) {
-				MyPortal.justGo(HubActivity.this, PublishActivity.class);
+				switch (v.getId()) {
+				case R.drawable.index_xie:
+					MyPortal.justGo(HubActivity.this, PublishActivity.class);
+					break;
+//				case R.drawable.
+				default:
+					break;
+				}
 			}
 		});
 		jwtMana.addRight(img);

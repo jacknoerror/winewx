@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/com/weixun/cn/ui/JackAbsFragment.java=UTF-8
-encoding//src/com/weixun/cn/util/JackUtils.java=GBK
+encoding//src/com/weixun/cn/util/ImageUtils.java=gbk
+encoding//src/com/weixun/cn/util/WxUtils.java=GBK
+encoding//src/com/weixun/net/action/upload=gbk
+encoding//src/com/weixun/net/action/upload/JackUploadTask.java=GBK
 encoding/<project>=UTF-8

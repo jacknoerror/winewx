@@ -34,6 +34,7 @@
         <activity android:name="com.weixun.cn.ui.RadioGroupListActivity"></activity>
         <activity android:name="com.weixun.cn.ui.tabs.ActMainActivity"></activity>
         <activity android:name="com.weixun.cn.ui.tabs.ActDetailActivity"></activity>
+        <activity android:name="com.weixun.cn.ui.SearchActivity"></activity>
     </application>
     <supports-screens 
 		android:largeScreens="true" 

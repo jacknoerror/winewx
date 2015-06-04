@@ -49,11 +49,13 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jacktao.utils.JackWindowTitleManager;
 import com.weixun.cn.MyApplication;
 import com.weixun.cn.R;
+import com.weixun.cn.R.id;
 
 
-public class JackUtils {
+public class WxUtils {
 	
 	public final static String srcRegEx = "(?<=src=\")(.*?)(?=\")";
 	
@@ -551,6 +553,11 @@ public class JackUtils {
 		Uri content_url = Uri.parse(url);
 		intent.setData(content_url);
 		activity.startActivity(intent);
+	}
+
+	public static void simpleTitle(JackWindowTitleManager mWtm, String title) {
+		mWtm.setComponent(R.id.title_midtext, title);
+		mWtm.initBackBtn();
 	}
 
 }
