@@ -1,0 +1,67 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.weixun.cn.index.SearchActivity" >
+    
+    
+
+    <TextView
+        android:id="@+id/wenzi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:text="@string/searchmore"
+        android:textColor="@color/black"
+        android:textSize="50px" />
+    
+    <TextView
+        android:id="@+id/search_lcl"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@id/wenzi"
+        android:layout_centerHorizontal="true"
+        android:text="酒柜"
+        android:gravity="center"
+        android:layout_marginTop="38dp"
+        android:textColor="@color/darkgray"
+        android:drawableLeft="@drawable/index_jiu"
+        android:textSize="20px" />
+    
+    <TextView
+        android:id="@+id/search_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@id/wenzi"
+        android:layout_centerHorizontal="true"
+        android:layout_toLeftOf="@id/search_lcl"
+        android:text="朋友"
+        android:layout_marginRight="50dp"
+        android:layout_alignTop="@id/search_lcl"
+        android:textColor="@color/darkgray"
+        android:drawableLeft="@drawable/index_xiao"
+        android:gravity="center"
+        android:textSize="20px" />
+    
+    <TextView
+        android:id="@+id/search_action"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@id/wenzi"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/search_lcl"
+        android:layout_alignTop="@id/search_lcl"
+        android:textColor="@color/darkgray"
+        android:gravity="center"
+        android:text="活动"
+        android:layout_marginLeft="50dp"
+        android:drawableLeft="@drawable/index_miqi"
+        android:textSize="20px" />
+    
+    
+    
+    
+
+</RelativeLayout>

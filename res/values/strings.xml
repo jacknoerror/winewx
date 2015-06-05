@@ -8,5 +8,7 @@
     <string name="search">查找</string>
     <string name="publish">发布</string>
     <string name="headimg">头像</string>
+    
+    <string name="searchmore">搜索更多内容</string>
 
 </resources>

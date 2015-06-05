@@ -23,6 +23,7 @@ import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabContentFactory;
 import android.widget.TextView;
 
+import com.jacktao.utils.JackUtils;
 import com.jacktao.utils.JackWindowTitleManager;
 import com.jacktao.utils.JackWindowTitleManager.JackTitleConst;
 import com.weixun.cn.MyData;
@@ -34,7 +35,6 @@ import com.weixun.cn.ui.tabs.TabChat;
 import com.weixun.cn.ui.tabs.TabDiscover;
 import com.weixun.cn.ui.tabs.TabMain;
 import com.weixun.cn.ui.tabs.TabMy;
-import com.weixun.cn.util.WxUtils;
 
 public class HubActivity extends FragmentActivity implements
 		OnTabChangeListener {
@@ -63,7 +63,7 @@ public class HubActivity extends FragmentActivity implements
 
 			long currentTimeMillis = System.currentTimeMillis();
 			if (currentTimeMillis - backtime > 2000) {
-				WxUtils.showToast(this, "再按一次退出网上轻纺城");
+				JackUtils.showToast(this, "再按一次退出微醺世界");
 			} else {
 				Intent intent = new Intent(Intent.ACTION_MAIN);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
