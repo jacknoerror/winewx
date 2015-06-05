@@ -6,6 +6,7 @@ import java.util.List;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,6 +30,7 @@ import com.jacktao.utils.JackWindowTitleManager.JackTitleConst;
 import com.weixun.cn.MyData;
 import com.weixun.cn.R;
 import com.weixun.cn.bean.CmListItem;
+import com.weixun.cn.customview.MyShareDialog;
 import com.weixun.cn.ui.tabs.PublishActivity;
 import com.weixun.cn.ui.tabs.TabCabinet;
 import com.weixun.cn.ui.tabs.TabChat;
@@ -56,6 +58,7 @@ public class HubActivity extends FragmentActivity implements
 
 	long backtime;
 	private JackWindowTitleManager jwtMana;
+	private ImageView rightImg_publish, rightImg_search, rightImg_stores;
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -84,9 +87,17 @@ public class HubActivity extends FragmentActivity implements
 		setContentView(R.layout.a_hub);
 		jwtMana = new JackWindowTitleManager(this);
 		jwtMana.setComponent(JackTitleConst.CUSTOMTITLE_ID_MIDTEXT, "微醺世界");
-		ImageView img = new ImageView(this);
-		img.setImageResource(R.drawable.index_xie);
-		img.setOnClickListener(new View.OnClickListener() {
+		rightImg_publish = new ImageView(this);
+		rightImg_search = new ImageView(this);
+		rightImg_stores = new ImageView(this);
+		rightImg_publish.setImageResource(R.drawable.index_xie);
+		rightImg_publish.setPadding(1, 0, 15, 0);
+		rightImg_search.setImageResource(R.drawable.index_search);
+		rightImg_stores.setImageResource(R.drawable.speak_saoyisao);
+		rightImg_publish.setId(R.drawable.index_xie);
+		rightImg_search.setId(R.drawable.index_search);
+		rightImg_stores.setId(R.drawable.speak_saoyisao);
+		View.OnClickListener l = new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -94,13 +105,23 @@ public class HubActivity extends FragmentActivity implements
 				case R.drawable.index_xie:
 					MyPortal.justGo(HubActivity.this, PublishActivity.class);
 					break;
-//				case R.drawable.
+				case R.drawable.index_search:
+					MyPortal.justGo(HubActivity.this, SearchActivity.class);
+					break;
+				case R.drawable.speak_saoyisao:
+					showShareDialog();
+					break;
 				default:
 					break;
 				}
 			}
-		});
-		jwtMana.addRight(img);
+		};
+		rightImg_publish.setOnClickListener(l);
+		rightImg_search.setOnClickListener(l);
+		rightImg_stores.setOnClickListener(l);
+		jwtMana.addRight(rightImg_publish);
+		jwtMana.addRight(rightImg_search);
+		jwtMana.addRight(rightImg_stores);
 
 		// singleBack = getIntent().getBooleanExtra(YftValues.EXTRAS_SINGLEBACK,
 		// false);
@@ -153,6 +174,12 @@ public class HubActivity extends FragmentActivity implements
 			jftcl.onTabChanged(tabId);
 		if (null != jwtMana) {
 			jwtMana.setComponent(JackTitleConst.CUSTOMTITLE_ID_MIDTEXT, tabId);
+		}
+		rightImg_publish.setVisibility(tabId.equals(TITLES[0])?View.VISIBLE:View.GONE);
+		rightImg_search.setVisibility(tabId.equals(TITLES[0])?View.VISIBLE:View.GONE);
+		rightImg_stores.setVisibility(tabId.equals(TITLES[2])?View.VISIBLE:View.GONE);
+		if(tabId.equals(TITLES[1])){
+			//TODO 切换到聊天
 		}
 	}
 
@@ -237,6 +264,13 @@ public class HubActivity extends FragmentActivity implements
 			return convertView;
 		}
 		
+		
+		
 }
 
+	public Dialog showShareDialog() {
+		MyShareDialog msDialog = new MyShareDialog(this);
+		msDialog.show();
+		return msDialog;
+	}
 }

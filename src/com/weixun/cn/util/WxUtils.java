@@ -555,9 +555,10 @@ public class WxUtils {
 		activity.startActivity(intent);
 	}
 
-	public static void simpleTitle(JackWindowTitleManager mWtm, String title) {
+	public static JackWindowTitleManager simpleTitle(JackWindowTitleManager mWtm, String title) {
 		mWtm.setComponent(R.id.title_midtext, title);
 		mWtm.initBackBtn();
+		return mWtm;
 	}
 
 }

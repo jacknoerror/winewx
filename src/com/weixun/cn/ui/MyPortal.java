@@ -48,4 +48,5 @@ public class MyPortal {
 		activity.startActivity(intent);
 		
 	}
+
 }

@@ -38,4 +38,11 @@
 	    <item name="android:layout_width">wrap_content</item>
 	    <item name="android:layout_height">wrap_content</item>
 	</style>
+	
+	<style name="mystyle" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/dialog_enter</item>
+  //进入时的动画
+                <item name="@android:windowExitAnimation">@anim/dialog_exit</item>
+    //退出时的动画
+</style>
 </resources>

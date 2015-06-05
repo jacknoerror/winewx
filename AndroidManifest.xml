@@ -38,6 +38,8 @@
         <activity android:name="com.weixun.cn.ui.tabs.ActMainActivity"></activity>
         <activity android:name="com.weixun.cn.ui.tabs.ActDetailActivity"></activity>
         <activity android:name="com.weixun.cn.ui.SearchActivity"></activity>
+        <activity android:name="com.weixun.cn.ui.tabs.stores.StoreInActivity"></activity>
+        <activity android:name="com.weixun.cn.ui.tabs.stores.StoreOutActivity"></activity>
     </application>
     <supports-screens 
 		android:largeScreens="true" 

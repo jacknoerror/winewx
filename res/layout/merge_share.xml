@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+   
+    >
+    <LinearLayout 
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="-12dp"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:paddingTop="10dp"
+        >
+        <Button 
+            android:id="@+id/btn_dialog_instore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="入库"
+            />
+        <Button 
+            android:id="@+id/btn_dialog_outstore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="出库"
+            />
+        <Button 
+            android:id="@+id/btn_dialog_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            />
+    </LinearLayout>
+
+</merge>
