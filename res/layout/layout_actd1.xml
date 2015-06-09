@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="时间"
-                    android:drawableLeft="@drawable/ic_launcher"
+                    android:drawableLeft="@drawable/action_shijian"
                     />
                 <TextView 
                     android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="人数"
-                    android:drawableLeft="@drawable/ic_launcher"
+                    android:drawableLeft="@drawable/index_renshu"
                     />
                 <TextView 
                     android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="活动地点"
-                    android:drawableLeft="@drawable/ic_launcher"
+                    android:drawableLeft="@drawable/find_dingwei"
                     android:gravity="center"
                     />
                 <TextView 
@@ -123,7 +123,7 @@
             android:orientation="horizontal"
             >
             <TextView 
-                android:id="@+id/tv_"
+                android:id="@+id/tv_act_range"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

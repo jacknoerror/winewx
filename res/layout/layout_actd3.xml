@@ -5,13 +5,21 @@
     android:orientation="vertical" 
     android:padding="@dimen/jack_margin_double"
     >
-    <ListView 
+    <!-- <ListView 
         android:id="@+id/list_ad_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
         
-    </ListView>
+    </ListView> -->
+    <LinearLayout 
+        android:id="@+id/layout_ad_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        
+    </LinearLayout>
     <Button 
         android:id="@+id/btn_ad_comment"
         android:layout_width="match_parent"
