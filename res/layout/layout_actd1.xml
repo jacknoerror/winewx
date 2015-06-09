@@ -14,7 +14,7 @@
             android:layout_width="@dimen/sidelong"
             android:layout_height="@dimen/sidelong"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher"
+            android:src="@drawable/speak_touxiang9"
             />
         <LinearLayout 
             android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="时间"
-                    android:drawableLeft="@drawable/ic_launcher"
+                    android:drawableLeft="@drawable/action_shijian"
                     />
                 <TextView 
                     android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="人数"
-                    android:drawableLeft="@drawable/ic_launcher"
+                    android:drawableLeft="@drawable/index_renshu"
                     />
                 <TextView 
                     android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="活动地点"
-                    android:drawableLeft="@drawable/ic_launcher"
+                    android:drawableLeft="@drawable/pubaction_huodongdidian"
                     android:gravity="center"
                     />
                 <TextView 
@@ -159,7 +159,7 @@
 	    android:id="@+id/edit_lcls_remark"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:text="说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明"
+	    android:text="这个是备注哦 "
 	    android:layout_margin="@dimen/jack_margin"
 	      />
 </LinearLayout>
