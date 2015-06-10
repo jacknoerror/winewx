@@ -10,14 +10,17 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.easemob.chatuidemo.activity.MainActivity;
 import com.jacktao.ui.custom.getter.ViewPagerGetter;
 import com.jacktao.ui.custom.getter.ViewPagerGetter.IvInVpImpl;
 import com.weixun.cn.R;
 import com.weixun.cn.bean.CmListItem;
 import com.weixun.cn.ui.ContentAbstractFragment;
 import com.weixun.cn.ui.HubActivity;
+import com.weixun.cn.ui.SearchActivity;
 import com.weixun.cn.ui.HubActivity.OkListAdapter;
 import com.weixun.cn.ui.MyPortal;
 
@@ -39,16 +42,39 @@ public class TabMain extends ContentAbstractFragment {
 
 	@Override
 	public int getLayoutRid() {
-		return 0;
+		return R.layout.activity_index;
 	}
-
+	
+	
 	@Override
 	public void initView() {
+//		View Xview = mInflater.inflate(R.layout.index_head, null);
+		Button searchButton= (Button)mView.findViewById(R.id.search);
+		searchButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				MyPortal.justGo(getActivity(), SearchActivity.class);
+			}
+		});
 		
-		mList = new ListView(getActivity());
-		mView = mList;
+		Button puhButton= (Button)mView.findViewById(R.id.publish);
+		searchButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				MyPortal.justGo(getActivity(), PublishActivity.class);
+			}
+		});
+		
+		
+		
+		mList = (ListView)mView.findViewById(R.id.list_index);
 		mList.addHeaderView(initViewPager());
 		mList.addHeaderView(initMsgBar());
+		
 		mList.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -67,7 +93,7 @@ public class TabMain extends ContentAbstractFragment {
 		btnMsgFrd = (Button) vMB.findViewById(R.id.index_friend_button);
 		btnMsgAll = (Button) vMB.findViewById(R.id.index_all_button);
 		index_news = (TextView) vMB.findViewById(R.id.index_news);
-		btnMsgFrd.setSelected(true);//默认选中"朋友"
+		btnMsgAll.setSelected(true);//默认选中"全部"
 		View.OnClickListener bListener = new View.OnClickListener() {
 			
 			@Override
@@ -113,9 +139,12 @@ public class TabMain extends ContentAbstractFragment {
 		// TODO Auto-generated method stub
 		//顶部滑动图片数据 FIXME 造数据
 		TempTopPic[] tps = new TempTopPic[3];
-		for(int i=0;i<tps.length;i++){
-			tps[i] = new TempTopPic("https://www.baidu.com/img/bdlogo.png", null);
-		}
+//		for(int i=0;i<tps.length;i++){
+//			tps[i] = new TempTopPic("https://www.baidu.com/img/bdlogo.png", null);
+//		}
+		tps[0] = new TempTopPic("https://www.baidu.com/img/bdlogo.png", null);
+		tps[1] = new TempTopPic("http://image.zcool.com.cn/59/54/m_1303967870670.jpg", null);
+		tps[2] = new TempTopPic("http://image.zcool.com.cn/47/19/1280115949992.jpg", null);
 		vpGet.setup(tps);
 		//新消息栏
 //		if(新消息>0){TODO
@@ -129,7 +158,8 @@ public class TabMain extends ContentAbstractFragment {
 		dataList.add(new CmListItem());
 		dataList.add(new CmListItem());
 		dataList.add(new CmListItem());
-		mList.setAdapter(new OkListAdapter(dataList,(HubActivity)getActivity()));//
+		mList.setAdapter(new OkListAdapter(dataList,(MainActivity)getActivity()));//
+//		mList.setAdapter(new OkListAdapter(dataList,(HubActivity)getActivity()));
 		
 	}
 

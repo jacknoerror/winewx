@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBEBEB"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rel_lxr"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="10dp" >
+
+        <ImageView
+            android:id="@+id/img_desc_touxiang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/speak_touxiang9" />
+
+        <TextView
+            android:id="@+id/text_desc_nick"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/img_desc_touxiang"
+            android:background="#00000000"
+            android:paddingLeft="5dp"
+            android:text="红酒酷"
+            android:textColor="@color/black_deep"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/text_desc_weixunnum"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@+id/text_desc_nick"
+            android:layout_toRightOf="@+id/img_desc_touxiang"
+            android:background="#00000000"
+            android:paddingLeft="5dp"
+            android:text="tetasa小温同学"
+            android:textColor="@color/gray_normal"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+       android:layout_marginTop="2dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:text="地区"
+            android:gravity="center"
+            android:textColor="@color/black_deep" />
+
+        <TextView
+            android:id="@+id/text_desc_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="浙江杭州" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+                android:layout_marginTop="3dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:text="个性签名"
+            android:gravity="center"
+            android:textColor="@color/black_deep" />
+
+        <TextView
+            android:id="@+id/text_desc_qianming"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="宝刀屠龙，谁与争锋！" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/but_desc_addfriend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/textview_index_background"
+        android:text="添加好友" />
+
+</LinearLayout>
