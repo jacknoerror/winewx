@@ -60,7 +60,7 @@ public class TabMain extends ContentAbstractFragment {
 		});
 		
 		Button puhButton= (Button)mView.findViewById(R.id.publish);
-		searchButton.setOnClickListener(new OnClickListener() {
+		puhButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

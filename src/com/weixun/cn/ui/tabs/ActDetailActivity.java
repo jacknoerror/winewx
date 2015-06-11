@@ -3,6 +3,11 @@ package com.weixun.cn.ui.tabs;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.easemob.chatuidemo.activity.AddContactActivity;
+import com.easemob.chatuidemo.activity.GroupsActivity;
+import com.easemob.chatuidemo.myactivity.ActionItem;
+import com.easemob.chatuidemo.myactivity.TitlePopup;
+import com.easemob.chatuidemo.myactivity.TitlePopup.OnItemOnClickListener;
 import com.jacktao.utils.JackWindowTitleManager;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.weixun.cn.R;
@@ -10,9 +15,12 @@ import com.weixun.cn.bean.CmListItem;
 import com.weixun.cn.util.WxUtils;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
@@ -22,9 +30,10 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.ImageView.ScaleType;
 
-public class ActDetailActivity extends Activity {
+public class ActDetailActivity extends Activity implements OnClickListener {
 
 	private LayoutInflater mInflater;
+	private TitlePopup titlePopup;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +50,45 @@ public class ActDetailActivity extends Activity {
 	private void initLayout1() {
 		// TODO Auto-generated method stub
 		View aLayout1 = findViewById(R.id.layout_actd1);
-		//TODO 判断是否添加第二部分
+		final TextView selectRange = (TextView) aLayout1.findViewById(R.id.tv_act_range);
+		final TextView tv_act_group = (TextView) aLayout1.findViewById(R.id.tv_act_group);
+		selectRange.setOnClickListener(this);
+		tv_act_group.setOnClickListener(this);
+		titlePopup = new TitlePopup(this, LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT);
+		titlePopup
+				.addAction(new ActionItem(this, "私有", R.drawable.addfriend));
+		titlePopup
+				.addAction(new ActionItem(this, "仅群报名", R.drawable.groupchars));
+		titlePopup.addAction(new ActionItem(this, "公开报名",
+				R.drawable.mm_title_btn_qrcode_normal));
+		titlePopup.setItemOnClickListener(new OnItemOnClickListener(){
+
+            @Override
+            public void onItemClick(ActionItem item, int position) {
+                // TODO Auto-generated method stub
+                switch (position) {
+                case 0:
+                	selectRange.setText("私有");
+                	tv_act_group.setVisibility(View.INVISIBLE);
+                    break;
+                case 1:
+                	selectRange.setText("仅群报名");
+                	//  选择群
+                	tv_act_group.setVisibility(View.VISIBLE);
+                	tv_act_group.setText("点我选择群组");
+                    break;
+                case 2:
+                	tv_act_group.setVisibility(View.INVISIBLE);
+                	selectRange.setText("公开报名");
+                    break;
+                default:
+                    break;
+                }
+            }
+		
+		});
+		// TODO 判断是否添加第二部分
 		initLayout2();
 	}
 
@@ -181,5 +228,21 @@ public class ActDetailActivity extends Activity {
 			this.pic = pic;
 		}
 
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		case R.id.tv_act_range:
+			//弹出选择
+			titlePopup.show(v);
+			break;
+		case R.id.tv_act_group:
+			//TODO 选择群组
+			break;
+		default:
+			break;
+		}
 	}
 }

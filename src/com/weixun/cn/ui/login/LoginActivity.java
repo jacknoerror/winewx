@@ -132,7 +132,6 @@ public class LoginActivity extends Activity{
 		
 		//这里实现自己的登录方法kkkkkkkkkkkkkkkkkk
 		
-		
 		// 调用sdk登陆方法登陆聊天服务器
 		EMChatManager.getInstance().login(currentUsername, currentPassword, new EMCallBack() {
 
