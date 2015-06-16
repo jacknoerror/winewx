@@ -100,7 +100,7 @@ public class ActDetailActivity extends Activity implements OnClickListener {
 		LinearLayout layout = (LinearLayout) aLayout2.findViewById(R.id.layout_ad_wines);
 		for(int i=0;i<5;i++){
 			View item = mInflater.inflate(R.layout.item_actwines, null);
-			ImageView v1 = (ImageView) item.findViewById(R.id.img_actwines_lock);
+			final ImageView v1 = (ImageView) item.findViewById(R.id.img_actwines_lock);
 			TextView v2 = (TextView) item.findViewById(R.id.tv_actwines_name);//酒名
 			TextView v3 = (TextView) item.findViewById(R.id.tv_actwines_num);//数量
 			TextView v4 = (TextView) item.findViewById(R.id.tv_actwines_person);//人名
@@ -115,6 +115,14 @@ public class ActDetailActivity extends Activity implements OnClickListener {
 			//TODO 填充数据
 			v4.setText("人名");
 			layout.addView(item);
+			item.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub 有关加锁的请求
+					v1.setSelected(v.isSelected());//锁
+				}
+			});
 		}
 		//加载头像数据
 		GridView grid = (GridView) findViewById(R.id.grid_ad_enroll);
@@ -138,7 +146,7 @@ public class ActDetailActivity extends Activity implements OnClickListener {
 		LinearLayout layout = (LinearLayout) aLayout3
 				.findViewById(R.id.layout_ad_comment);
 		for (int i = 0; i < 5; i++) {
-			View item = mInflater.inflate(R.layout.listitem_common, null);
+			View item = mInflater.inflate(R.layout.listitem_comment, null);
 
 			// TODO 填充数据
 			layout.addView(item);
