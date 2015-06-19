@@ -20,7 +20,6 @@ public class MyApplication extends Application{
 	public void onCreate() {
 		super.onCreate();
 		app = this;
-
 		initScreenData();
 		ImageLoaderHelper.initImageLoader(this);//0610
 		initManas();
@@ -55,6 +54,8 @@ public class MyApplication extends Application{
 	public String getDeviceId(){
 		return mDeviceId	;
 	}
+	
+
 	
 	
 }

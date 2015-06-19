@@ -24,6 +24,8 @@ import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabContentFactory;
 import android.widget.TextView;
 
+import com.easemob.chatuidemo.activity.ChatAllHistoryFragment;
+import com.easemob.chatuidemo.activity.MainActivity;
 import com.jacktao.utils.JackUtils;
 import com.jacktao.utils.JackWindowTitleManager;
 import com.jacktao.utils.JackWindowTitleManager.JackTitleConst;
@@ -33,11 +35,10 @@ import com.weixun.cn.bean.CmListItem;
 import com.weixun.cn.customview.MyShareDialog;
 import com.weixun.cn.ui.tabs.PublishActivity;
 import com.weixun.cn.ui.tabs.TabCabinet;
-import com.weixun.cn.ui.tabs.TabChat;
 import com.weixun.cn.ui.tabs.TabDiscover;
 import com.weixun.cn.ui.tabs.TabMain;
 import com.weixun.cn.ui.tabs.TabMy;
-
+@Deprecated
 public class HubActivity extends FragmentActivity implements
 		OnTabChangeListener {
 	final String TAG = HubActivity.class.getName();
@@ -45,7 +46,7 @@ public class HubActivity extends FragmentActivity implements
 			R.drawable.selector_hubtab1, R.drawable.selector_hubtab2,
 			R.drawable.selector_hubtab3, R.drawable.selector_hubtab4 };
 	final String[] TITLES = new String[] { "首页", "聊天", "酒柜", "发现", "我的" };
-	final Class[] CLAZZZ = new Class[] { TabMain.class, TabChat.class,
+	final Class[] CLAZZZ = new Class[] { TabMain.class, ChatAllHistoryFragment.class,
 			TabCabinet.class, TabDiscover.class, TabMy.class };
 
 	@Override
@@ -170,6 +171,7 @@ public class HubActivity extends FragmentActivity implements
 
 	@Override
 	public void onTabChanged(String tabId) {
+//		getActionBar().show();
 		if (null != jftcl)
 			jftcl.onTabChanged(tabId);
 		if (null != jwtMana) {
@@ -180,6 +182,13 @@ public class HubActivity extends FragmentActivity implements
 		rightImg_stores.setVisibility(tabId.equals(TITLES[2])?View.VISIBLE:View.GONE);
 		if(tabId.equals(TITLES[1])){
 			//TODO 切换到聊天
+//			getActionBar().hide();
+//			
+//			Intent intent = new Intent(this,MainActivity.class);
+//			Bundle data = new Bundle();
+//			data.putInt("index", 0);
+//			intent.putExtras(data);
+//			startActivity(intent);
 		}
 	}
 
@@ -217,7 +226,7 @@ public class HubActivity extends FragmentActivity implements
 	}
 
 	static class CabHolder {
-		// TODO
+		// TODO textview
 	}
 
 	public static class OkListAdapter extends BaseAdapter {

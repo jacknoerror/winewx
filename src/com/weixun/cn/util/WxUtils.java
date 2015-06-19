@@ -40,19 +40,18 @@ import android.net.Uri;
 import android.os.Environment;
 import android.text.TextPaint;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jacktao.utils.JackWindowTitleManager;
 import com.weixun.cn.MyApplication;
 import com.weixun.cn.R;
-import com.weixun.cn.R.id;
 
 
 public class WxUtils {
@@ -65,12 +64,12 @@ public class WxUtils {
 	
 	public static ProgressDialog showProgressDialog(Context context,String text){
 		
-		return ProgressDialog.show(context, "", "¼ÓÔØÖÐ...");
+		return ProgressDialog.show(context, "", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...");
 	}
 	
 
 	 /** 
-	      * ¸ù¾ÝÊÖ»úµÄ·Ö±æÂÊ´Ó dp µÄµ¥Î» ×ª³ÉÎª px(ÏñËØ) 
+	      * ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ä·Ö±ï¿½ï¿½Ê´ï¿½ dp ï¿½Äµï¿½Î» ×ªï¿½ï¿½Îª px(ï¿½ï¿½ï¿½ï¿½) 
 	      */  
 	     public static int dip2px(Context context, float dpValue) {  
 	         final float scale = context.getResources().getDisplayMetrics().density;  
@@ -78,7 +77,7 @@ public class WxUtils {
 	     }  
 	   
 	     /** 
-	      * ¸ù¾ÝÊÖ»úµÄ·Ö±æÂÊ´Ó px(ÏñËØ) µÄµ¥Î» ×ª³ÉÎª dp 
+	      * ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ä·Ö±ï¿½ï¿½Ê´ï¿½ px(ï¿½ï¿½ï¿½ï¿½) ï¿½Äµï¿½Î» ×ªï¿½ï¿½Îª dp 
 	      */  
 	     public static int px2dip(Context context, float pxValue) {  
 	         final float scale = context.getResources().getDisplayMetrics().density;  
@@ -86,7 +85,7 @@ public class WxUtils {
 	     }  
 
 	     /**
-	      * ´ÓAssetsÖÐ¶ÁÈ¡Í¼Æ¬
+	      * ï¿½ï¿½Assetsï¿½Ð¶ï¿½È¡Í¼Æ¬
 	      */
 	     public static Bitmap getbmFromAssetsFile(Resources res , String fileName)
 	     {
@@ -170,7 +169,7 @@ public class WxUtils {
     	  if(!path.startsWith(getSDPre())) path = getSDPre()+path;
     	  return deleteFile(new File(path));
       }
-      //½«SD¿¨ÎÄ¼þÉ¾³ý
+      //ï¿½ï¿½SDï¿½ï¿½ï¿½Ä¼ï¿½É¾ï¿½ï¿½
       public static boolean  deleteFile(File file)
       {
     	   
@@ -182,19 +181,19 @@ public class WxUtils {
 		         {
 		        	 return file.delete();//1210
 		         }
-		         // Èç¹ûËüÊÇÒ»¸öÄ¿Â¼
+		         // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ä¿Â¼
 		         else if (file.isDirectory())
 		         {
-		          // ÉùÃ÷Ä¿Â¼ÏÂËùÓÐµÄÎÄ¼þ files[];
+		          // ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ä¼ï¿½ files[];
 			          File files[] = file.listFiles();
 			          for (int i = 0; i < files.length; i++)
-			          { // ±éÀúÄ¿Â¼ÏÂËùÓÐµÄÎÄ¼þ
-			           deleteFile(files[i]); // °ÑÃ¿¸öÎÄ¼þ ÓÃÕâ¸ö·½·¨½øÐÐµü´ú
+			          { // ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ä¼ï¿½
+			           deleteFile(files[i]); // ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½
 			          }
 		         }
 	         return file.delete();
 	        }else
-	        {//ÒÑ¾­²»´æÔÚ
+	        {//ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	       	 return true; //1210 taotao
 	        }
        }
@@ -206,12 +205,12 @@ public class WxUtils {
 		AlertDialog.Builder builder = new Builder(context);
 		builder.setMessage(hintContent);
 
-		builder.setTitle("ÌáÊ¾");
+		builder.setTitle("ï¿½ï¿½Ê¾");
 
 		if (null != positiveListener)
-			builder.setPositiveButton("È·ÈÏ", positiveListener);
+			builder.setPositiveButton("È·ï¿½ï¿½", positiveListener);
 
-		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("È¡ï¿½ï¿½", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -220,13 +219,13 @@ public class WxUtils {
 		});
 		
 		/*TextView customTitleView = (TextView) LayoutInflater.from(context).inflate(R.layout.textview_dialoghead, null);
-		customTitleView.setText(context.getResources().getString(R.string.app_name)+"ÌáÐÑ");
+		customTitleView.setText(context.getResources().getString(R.string.app_name)+"ï¿½ï¿½ï¿½ï¿½");
 		builder.setCustomTitle(customTitleView );*/
 
 		return builder.show();
 	}
       /**
-       * µã»÷È·¶¨ºó¹Ø±Õactivity
+       * ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Ø±ï¿½activity
      * @param rContext
      * @param hintContent
      * @param activity
@@ -237,8 +236,8 @@ public class WxUtils {
 		if(null==activity) return;
 		AlertDialog.Builder builder = new Builder(activity);
 		builder.setMessage(hintContent);
-		builder.setTitle("ÌáÊ¾");
-		builder.setPositiveButton("È·ÈÏ", new DialogInterface.OnClickListener() {
+		builder.setTitle("ï¿½ï¿½Ê¾");
+		builder.setPositiveButton("È·ï¿½ï¿½", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -257,12 +256,12 @@ public class WxUtils {
        */
       public static Bitmap getBitmapFromSDCard(String filePath){
     	  /**
-    	      *Í¼Æ¬ÎÄ¼þÂ·¾¶
-    	 *´òÓ¡Environment.getExternalStorageDirectory()µÃµ½£º"/mnt/sdcard"£¬¼´ÕÒµ½ÁËsd¿¨µÄ¸ùÄ¿Â¼
+    	      *Í¼Æ¬ï¿½Ä¼ï¿½Â·ï¿½ï¿½
+    	 *ï¿½ï¿½Ó¡Environment.getExternalStorageDirectory()ï¿½Ãµï¿½ï¿½ï¿½"/mnt/sdcard"ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½sdï¿½ï¿½ï¿½Ä¸ï¿½Ä¿Â¼
     	      */
     	 if(filePath==null||!filePath.startsWith("/mnt/sdcard"))filePath=Environment.getExternalStorageDirectory()+filePath;
     	     File mfile=new File(filePath);
-    	     if (mfile.exists()) {//Èô¸ÃÎÄ¼þ´æÔÚ
+    	     if (mfile.exists()) {//ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
     	     Bitmap bm = BitmapFactory.decodeFile(filePath);
     	     Log.i("SD", "exists");
     	     return bm;
@@ -271,7 +270,7 @@ public class WxUtils {
       }
       
       public static void textpaint_bold(TextView tv) {
-  		TextPaint tp = tv.getPaint();tp.setFakeBoldText(true);//¼Ó´Ö
+  		TextPaint tp = tv.getPaint();tp.setFakeBoldText(true);//ï¿½Ó´ï¿½
   	}
      public static void textpaint_underline(TextView tv){
     	 TextPaint tp = tv.getPaint();tp.setUnderlineText(true);
@@ -286,7 +285,7 @@ public class WxUtils {
  		if(null==view) return;
  	     
  		 TranslateAnimation animation = new TranslateAnimation(0, 0, p1, p2);
- 	     //Ìí¼ÓÁËÕâÐÐ´úÂëµÄ×÷ÓÃÊ±£¬viewÒÆ¶¯µÄÊ±ºò »áÓÐµ¯ÐÔÐ§¹û
+ 	     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½viewï¿½Æ¶ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ð§ï¿½ï¿½
  	     animation.setInterpolator(new DecelerateInterpolator());
  	     animation.setDuration(durationMillis);
  	     animation.setStartOffset(delayMillis);
@@ -328,13 +327,13 @@ public class WxUtils {
  		char hexDigits[]={'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};       
          try {
              byte[] btInput = bytes;
-             // »ñµÃMD5ÕªÒªËã·¨µÄ MessageDigest ¶ÔÏó
+             // ï¿½ï¿½ï¿½MD5ÕªÒªï¿½ã·¨ï¿½ï¿½ MessageDigest ï¿½ï¿½ï¿½ï¿½
              MessageDigest mdInst = MessageDigest.getInstance("MD5");
-             // Ê¹ÓÃÖ¸¶¨µÄ×Ö½Ú¸üÐÂÕªÒª
+             // Ê¹ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Ö½Ú¸ï¿½ï¿½ï¿½ÕªÒª
              mdInst.update(btInput);
-             // »ñµÃÃÜÎÄ
+             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              byte[] md = mdInst.digest();
-             // °ÑÃÜÎÄ×ª»»³ÉÊ®Áù½øÖÆµÄ×Ö·û´®ÐÎÊ½
+             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ê®ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
              int j = md.length;
              char str[] = new char[j * 2];
              int k = 0;
@@ -378,8 +377,8 @@ public class WxUtils {
  	
  	
 	/**
-	 * Í¼Æ¬Ëõ·Å
-	 * Î´¹ÜÀíÄÚ´æ£¬²»½¨ÒéÊ¹ÓÃ
+	 * Í¼Æ¬ï¿½ï¿½ï¿½ï¿½
+	 * Î´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´æ£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
 	 * @param bm
 	 * @param newWidth
 	 * @param newHeight
@@ -408,10 +407,10 @@ public class WxUtils {
 
 	
 	/**
-	 * ÉèÖÃÓÃ»§ÀëÏßÍ¼Æ¬
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
 	 * 
 	 * @param bmp Ô­Ê¼Í¼
-	 * @return ·µ»ØÀëÏßÍ¼
+	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼
 	 */
 	public static Bitmap setUsOfFlineBmp(Bitmap bmp) {
 		Bitmap grayImg = null;
@@ -437,8 +436,8 @@ public class WxUtils {
 	/**
 	 * 
 	 * @param bmp1 Ô­Ê¼Í¼
-	 * @param bmp2 ×´Ì¬Í¼±ê
-	 * @return ºÏ³ÉºóµÄÍ¼
+	 * @param bmp2 ×´Ì¬Í¼ï¿½ï¿½
+	 * @return ï¿½Ï³Éºï¿½ï¿½Í¼
 	 */
 	public static Bitmap setSynthBmp(Bitmap bmp1, Bitmap bmp2) {
 		Bitmap grayImg = null;
@@ -451,7 +450,7 @@ public class WxUtils {
 			Paint paint = new Paint();
 			canvas.drawBitmap(bmp1, 0, 0, paint);
 			canvas.drawBitmap(bmp2, width - bmp2.getWidth(),
-					height - bmp2.getHeight(), paint);// ²åÈëÍ¼±ê
+					height - bmp2.getHeight(), paint);// ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
 			canvas.save(Canvas.ALL_SAVE_FLAG);
 
 		} catch (OutOfMemoryError e) {
@@ -476,7 +475,7 @@ public class WxUtils {
 	
 	
 	/**
-	 * »ñÈ¡µ±Ç°µÄÆÁÄ»ÏÔÊ¾µÄ´°¿ÚÃû³Æ
+	 * ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ê¾ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param context
 	 * @return
@@ -509,7 +508,7 @@ public class WxUtils {
 	
 	/**
 	 * @param path
-	 * @return FileÎÄ¼þ£¬Èç¹ûÎÄ¼þ¼Ð²»´æÔÚÔò´´½¨ÎÄ¼þ¼Ð
+	 * @return Fileï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò´´½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 	 */
 	public static File makeMeFile(String path) {
 		File photoFile = new File(path);
@@ -521,7 +520,7 @@ public class WxUtils {
 
 	static int vvcc;
 	static String vvnn="";
-	public static int getVersionCode(Context context)//»ñÈ¡°æ±¾ºÅ(ÄÚ²¿Ê¶±ðºÅ)
+	public static int getVersionCode(Context context)//ï¿½ï¿½È¡ï¿½æ±¾ï¿½ï¿½(ï¿½Ú²ï¿½Ê¶ï¿½ï¿½ï¿½)
 	{
 		if(vvcc>0) return vvcc;
 		try {
@@ -531,7 +530,7 @@ public class WxUtils {
 			return 0;
 		}
 	}
-	public static String getVersionName(Context context)//»ñÈ¡°æ±¾ºÅ(ÄÚ²¿Ê¶±ðºÅ)
+	public static String getVersionName(Context context)//ï¿½ï¿½È¡ï¿½æ±¾ï¿½ï¿½(ï¿½Ú²ï¿½Ê¶ï¿½ï¿½ï¿½)
 	{
 		if(!vvnn.isEmpty()) return vvnn;
 		try {
@@ -560,5 +559,21 @@ public class WxUtils {
 		mWtm.initBackBtn();
 		return mWtm;
 	}
+	
+	public static boolean checkRE(String rule,EditText editText,String errormsg){
+		if(null==editText) return false;
+		if(!checkRE(rule, editText.getText().toString())){
+			editText.setError(errormsg);
+			editText.requestFocus();
+			return false;
+		}
+		return true;
+	}
+	
+	public static boolean checkRE(String rule,String content){
+		return content.matches(rule);
+	}
+	
+
 
 }

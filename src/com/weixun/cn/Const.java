@@ -10,5 +10,7 @@ public class Const {
 	public static final String EXTRA_EDITACTI_CUR = "editdef";
 	public static final String EXTRA_EXRGB = "exrgb";
 	public static final boolean UPLOAD_HD = false;//XXX
+	
+	//
 
 }
