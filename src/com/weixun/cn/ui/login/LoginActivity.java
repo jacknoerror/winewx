@@ -23,12 +23,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.easemob.EMCallBack;
 import com.easemob.chat.EMChatManager;
@@ -45,9 +42,6 @@ import com.easemob.util.EMLog;
 import com.easemob.util.HanziToPinyin;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.mobsandgeeks.saripaar.Rule;
-import com.mobsandgeeks.saripaar.Validator.ValidationListener;
-import com.weixun.cn.Const;
 import com.weixun.cn.R;
 import com.weixun.cn.bean.UserInfo;
 import com.weixun.cn.bean.UserMore;
@@ -404,8 +398,5 @@ public class LoginActivity extends Activity {
 			}
 		}
 	}
-
-
-
 
 }

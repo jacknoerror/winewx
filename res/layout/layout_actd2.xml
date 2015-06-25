@@ -19,12 +19,13 @@
         android:numColumns="4"
         >
     </GridView>
-    <LinearLayout 
+    <RelativeLayout 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="@dimen/jack_margin"
         android:layout_marginTop="@dimen/jack_margin_double"
+        android:gravity="center_vertical"
         >
         <TextView 
             android:layout_width="wrap_content"
@@ -37,13 +38,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="酒单"
+            android:layout_alignParentRight="true"
             />
-    </LinearLayout>
-    <ListView 
+    </RelativeLayout>
+    <!-- <ListView 
         android:id="@+id/list_ad_wines"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
-    </ListView>
+    </ListView>-->
 
 </LinearLayout>

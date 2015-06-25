@@ -35,18 +35,23 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal"
+                android:padding="@dimen/jack_margin"
                 >
                 <TextView 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="时间"
                     android:drawableLeft="@drawable/action_shijian"
+                    android:drawablePadding="@dimen/jack_margin"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/jacktextsize_elder"
                     />
                 <TextView 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2015-04-05"
                     android:textColor="@color/textcolor_orange"
+                    android:layout_marginLeft="@dimen/jack_margin"
                     />
             </LinearLayout>
             <LinearLayout 
@@ -54,29 +59,36 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal"
+                android:padding="@dimen/jack_margin"
                 >
                 <TextView 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="人数"
                     android:drawableLeft="@drawable/index_renshu"
+                    android:drawablePadding="@dimen/jack_margin"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/jacktextsize_elder"
                     />
                 <TextView 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="16"
                     android:textColor="@color/textcolor_orange"
+                    android:layout_marginLeft="@dimen/jack_margin"
                     />
                 <TextView 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="活动经费"
+                    android:layout_marginLeft="@dimen/jack_margin"
                     />
                 <TextView 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="￥2000"
                     android:textColor="@color/textcolor_orange"
+                    android:layout_marginLeft="@dimen/jack_margin"
                     />
             </LinearLayout>
             
@@ -123,7 +135,7 @@
             android:orientation="horizontal"
             >
             <TextView 
-                android:id="@+id/tv_"
+                android:id="@+id/tv_act_range"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -131,6 +143,7 @@
                     android:gravity="center"
                     />
                 <TextView 
+                    android:id="@+id/tv_act_group"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
