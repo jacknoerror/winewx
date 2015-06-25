@@ -1,28 +1,30 @@
 package com.weixun.cn.ui;
 
-import java.util.Set;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
+import android.content.Context;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import com.jacktao.utils.JackUtils;
 import com.weixun.cn.Const;
-import com.weixun.cn.MyData;
 
 public class WebviewActivity extends Activity {
 
 	private WebView mWebview;
+	private RelativeLayout mRelative;
+	private EditText buttonEdit;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,7 @@ public class WebviewActivity extends Activity {
 					mWebview.setInitialScale(300);
 					super.onPageFinished(view, url);
 					
+					
 				}
 				@Override
 				public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -75,14 +78,21 @@ public class WebviewActivity extends Activity {
 					Log.i("onPageStarted", url);
 
 					if(null==pDialog){
-						pDialog = JackUtils.showProgressDialog(WebviewActivity.this, "加载中");
+						pDialog = JackUtils.showProgressDialog(WebviewActivity.this, "加载");
 						pDialog.setCancelable(true);
 					}
 					else pDialog.show();
 				}
 				
 				@Override
-				public boolean shouldOverrideUrlLoading(WebView view, String url) {return false;}
+				public boolean shouldOverrideUrlLoading(WebView view, String url) {
+					if(url.contains("baidu")){//TODO 
+						showEditText(true);
+					}else{
+						showEditText(false);
+					}
+					JackUtils.showToast(WebviewActivity.this, url);
+					return false;}
 				@Override
 				public void onScaleChanged(WebView view, float oldScale,
 						float newScale) {
@@ -92,6 +102,36 @@ public class WebviewActivity extends Activity {
 		
 //		mWebview.loadUrl("file:///android_asset/home.html");
 		mWebview.loadUrl(urlExtra);
+	}
+	
+	
+	
+	protected void showEditText(boolean show) {
+		if(mRelative==null){
+			mRelative = new RelativeLayout(this);
+			setContentView(mRelative);
+			mRelative.addView(mWebview);
+			buttonEdit = new EditText(this);
+			mRelative.addView(buttonEdit);
+		}
+		if(show){
+			
+		buttonEdit.setVisibility(View.VISIBLE);
+		RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+				RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+		lp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+		buttonEdit.setBackgroundResource(android.R.drawable.edit_text);
+		buttonEdit.setLayoutParams(lp);
+		buttonEdit.setFocusable(true);
+		buttonEdit.setFocusableInTouchMode(true);
+		buttonEdit.requestFocus();
+		InputMethodManager inputManager =
+		(InputMethodManager) buttonEdit.getContext().getSystemService(
+				Context.INPUT_METHOD_SERVICE);
+		inputManager.showSoftInput(buttonEdit, 0);
+		}else{
+			buttonEdit.setVisibility(View.GONE);
+		}
 	}
 	
 }
