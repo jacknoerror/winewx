@@ -23,10 +23,10 @@ public class MessageActivity extends Activity {
 		mList.addFooterView(footer);
 		
 		ArrayList<CmListItem> dataList = new ArrayList<CmListItem>();
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
 		mList.setAdapter(new OkListAdapter(dataList,this));//
 		
 		

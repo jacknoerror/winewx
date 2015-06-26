@@ -69,11 +69,11 @@ public class TabCabinet extends ContentAbstractFragment {
 		mPTRV.setPullRefreshEnable(true);
 		mPTRV.setLoadMoreEnable(true);
 		ArrayList<CmListItem> dataList = new ArrayList<CmListItem>();
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
 //		mListView.setAdapter(new OkListAdapter(dataList,(HubActivity)getActivity()));//
 		mListView.setAdapter(new OkListAdapter(dataList,(MainActivity)getActivity()));//
 //		mPTRV.addView(mListView);

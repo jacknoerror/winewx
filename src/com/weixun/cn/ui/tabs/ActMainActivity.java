@@ -58,13 +58,13 @@ public class ActMainActivity extends Activity implements OnItemClickListener {
 		
 		//list init
 		List<CmListItem> dataList = new ArrayList<CmListItem>();
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
 		mListView.setAdapter(new ActMainListAdapter(dataList, this));
 		
 		mListView.setOnItemClickListener(this);

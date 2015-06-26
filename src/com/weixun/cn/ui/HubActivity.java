@@ -230,7 +230,7 @@ public class HubActivity extends FragmentActivity implements
 	}
 
 	public static class OkListAdapter extends BaseAdapter {
-		List<CmListItem> contentList;
+		List contentList;
 		private LayoutInflater aInflater;
 		
 		public OkListAdapter(List<CmListItem> list,Activity mActi) {
@@ -267,7 +267,7 @@ public class HubActivity extends FragmentActivity implements
 				holder = (CabHolder) convertView.getTag();
 			}
 			// setup
-			CmListItem u = contentList.get(position);
+			CmListItem u = (CmListItem) contentList.get(position);
 			// TODO
 			
 			return convertView;

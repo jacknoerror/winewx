@@ -92,7 +92,7 @@ public class ActDetailActivity extends Activity implements OnClickListener {
 		View aLayout2 = findViewById(R.id.layout_actd2);
 		aLayout2.setVisibility(View.VISIBLE);
 		//加载列表数据
-		LinearLayout layout = (LinearLayout) aLayout2.findViewById(0);//R.id.layout_ad_wines); //FIXME
+		LinearLayout layout = (LinearLayout) aLayout2.findViewById(R.id.layout_ad_wines); //FIXME
 		for(int i=0;i<5;i++){
 			View item = mInflater.inflate(R.layout.item_actwines, null);
 			final ImageView v1 = (ImageView) item.findViewById(R.id.img_actwines_lock);
@@ -139,7 +139,7 @@ public class ActDetailActivity extends Activity implements OnClickListener {
 		aLayout3.setVisibility(View.VISIBLE);
 		// 加载列表数据
 		LinearLayout layout = (LinearLayout) aLayout3
-				.findViewById(9);//R.id.layout_ad_comment);//FIXME
+				.findViewById(R.id.layout_ad_comment);// 
 		for (int i = 0; i < 5; i++) {
 			View item = mInflater.inflate(R.layout.listitem_comment, null);
 

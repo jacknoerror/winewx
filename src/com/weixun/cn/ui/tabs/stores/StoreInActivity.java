@@ -41,10 +41,8 @@ public class StoreInActivity extends Activity implements OnClickListener {
 	private void initList() {
 		mListv = (ListView) findViewById(R.id.list_stores);
 		ArrayList<CmListItem> dataList = new ArrayList<CmListItem>();
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
 		mListv.setAdapter(new OkListAdapter(dataList,this));//
 	}
 

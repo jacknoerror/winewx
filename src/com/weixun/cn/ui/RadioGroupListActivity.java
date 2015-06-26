@@ -76,18 +76,8 @@ public class RadioGroupListActivity extends Activity implements OnClickListener 
 		initSubTabs(new int[]{R.id.btn_user_r1,R.id.btn_user_r2,R.id.btn_user_r3});
 		
 		ArrayList<CmListItem> dataList = new ArrayList<CmListItem>();
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
+//		dataList.add(new CmListItem());
 		mListView.setAdapter(new OkListAdapter(dataList,this));//
 	}
 	
