@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
+import android.location.Location;
 import android.os.Environment;
 import android.os.SystemClock;
 import android.test.AndroidTestCase;
@@ -17,6 +18,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.easemob.chatuidemo.DemoApplication;
+import com.jacktao.utils.JackLocationManager;
+import com.jacktao.utils.JackUtils;
+import com.weixun.cn.MyApplication;
 import com.weixun.cn.util.MyJsonRequest;
 
 public class MainTest extends AndroidTestCase{
@@ -51,7 +56,7 @@ public class MainTest extends AndroidTestCase{
 
 	
 	public void test() throws Exception{
-		testSwitch(1);
+		testSwitch(4);
 	}
 	
 	private void testSwitch(int key) throws Exception {
@@ -77,6 +82,19 @@ public class MainTest extends AndroidTestCase{
 			
 			actionName = "app/spaceTalk/search";
 			
+			break;
+		case 3://论坛未读 一级回复的帖子
+			actionName = "app/spaceReply/loadUserUnreadCount";
+			break;
+		case 4://活动首页
+			params.put("city", "杭州");//	String	Y	城市
+			Location location = JackLocationManager.getInstance(DemoApplication.getInstance()).getLocation();
+			params.put("lon", location.getLongitude()+"");//	Double	y	经度
+			params.put("lat", location.getLatitude()+"");//	double	y	维度
+			params.put("pageSize", "10");//	Int	Y	每页大小
+			params.put("pageNo", "3");//	Int	y	
+//			params.put("search", "3");//	String	n	查询条件
+			actionName = "app/activity/index";
 			break;
 		default:
 			break;

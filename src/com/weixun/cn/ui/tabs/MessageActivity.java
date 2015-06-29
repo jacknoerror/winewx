@@ -2,14 +2,13 @@ package com.weixun.cn.ui.tabs;
 
 import java.util.ArrayList;
 
-import com.weixun.cn.bean.CmListItem;
-import com.weixun.cn.ui.HubActivity;
-import com.weixun.cn.ui.HubActivity.OkListAdapter;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.easemob.chatuidemo.activity.MainActivity.OkListAdapter;
+import com.weixun.cn.bean.CmListItem;
 
 public class MessageActivity extends Activity {
 	@Override

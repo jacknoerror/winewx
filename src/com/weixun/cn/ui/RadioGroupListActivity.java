@@ -16,15 +16,14 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
+import com.easemob.chatuidemo.activity.MainActivity.OkListAdapter;
 import com.hm.view.pullview.HmPullToRefreshView;
 import com.jacktao.utils.JackWindowTitleManager;
 import com.jacktao.utils.JackWindowTitleManager.JackTitleConst;
 import com.weixun.cn.Const;
 import com.weixun.cn.R;
 import com.weixun.cn.bean.CmListItem;
-import com.weixun.cn.ui.HubActivity.OkListAdapter;
 
 public class RadioGroupListActivity extends Activity implements OnClickListener {
 

@@ -2,6 +2,8 @@ package com.weixun.cn.bean;
 
 import java.util.Date;
 
+import com.weixun.cn.R;
+
 public class SpaceTalk  implements CmListItem {
     private Integer id;
     /**
@@ -291,4 +293,16 @@ public class SpaceTalk  implements CmListItem {
 		replyAmount +=1;
 		
 	}
+
+	@Override
+	public String getItemText(int rid) {
+		return null;
+	}
+
+	@Override
+	public int getItemRes(int rid) {
+		return 0;
+	}
+
+	
 }

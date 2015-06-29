@@ -229,53 +229,7 @@ public class HubActivity extends FragmentActivity implements
 		// TODO textview
 	}
 
-	public static class OkListAdapter extends BaseAdapter {
-		List contentList;
-		private LayoutInflater aInflater;
-		
-		public OkListAdapter(List<CmListItem> list,Activity mActi) {
-			if (null == list)
-				list = new ArrayList<CmListItem>();
-			contentList = list;
-			aInflater = LayoutInflater.from(mActi);
-		}
-		
-		@Override
-		public int getCount() {
-			return contentList.size();
-		}
-		
-		@Override
-		public Object getItem(int position) {
-			return contentList.get(position);
-		}
-		
-		@Override
-		public long getItemId(int position) {
-			return position;
-		}
-		
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			CabHolder holder = null;
-			// View view = null;
-			if (null == convertView) {
-				convertView = aInflater.inflate(R.layout.listitem_common, null);// ?
-				holder = new CabHolder();
-				convertView.setTag(holder);
-			} else {
-				holder = (CabHolder) convertView.getTag();
-			}
-			// setup
-			CmListItem u = (CmListItem) contentList.get(position);
-			// TODO
-			
-			return convertView;
-		}
-		
-		
-		
-}
+	
 
 	public Dialog showShareDialog() {
 		MyShareDialog msDialog = new MyShareDialog(this);

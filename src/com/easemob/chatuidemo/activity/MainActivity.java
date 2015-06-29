@@ -13,12 +13,13 @@
  */
 package com.easemob.chatuidemo.activity;
 
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,7 +30,10 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,9 +66,12 @@ import com.easemob.chatuidemo.utils.CommonUtils;
 import com.easemob.util.EMLog;
 import com.easemob.util.HanziToPinyin;
 import com.easemob.util.NetUtils;
+import com.jacktao.ui.common.CommonViewHolder;
 import com.jacktao.utils.JackUtils;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.analytics.MobclickAgent;
 import com.weixun.cn.R;
+import com.weixun.cn.bean.CmListItem;
 import com.weixun.cn.ui.login.LoginActivity;
 import com.weixun.cn.ui.tabs.TabCabinet;
 import com.weixun.cn.ui.tabs.TabDiscover;
@@ -857,6 +864,60 @@ public class MainActivity extends BaseActivity implements EMEventListener {
 		
 		return super.onKeyDown(keyCode, event);
 	}
+	public static class OkListAdapter extends BaseAdapter {
+		List contentList;
+		private LayoutInflater aInflater;
+		private Activity mActi;
+		
+		public OkListAdapter(List<CmListItem> list,Activity mActi) {
+			if (null == list)
+				list = new ArrayList<CmListItem>();
+			contentList = list;
+			aInflater = LayoutInflater.from(mActi);
+			this.mActi = mActi;
+		}
+		
+		@Override
+		public int getCount() {
+			return contentList.size();
+		}
+		
+		@Override
+		public Object getItem(int position) {
+			return contentList.get(position);
+		}
+		
+		@Override
+		public long getItemId(int position) {
+			return position;
+		}
+		
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
 
+			if (convertView == null) {
+				convertView = LayoutInflater.from(mActi).inflate(
+						R.layout.listitem_common, parent, false);
+			}
+
+			ImageView img_li_cab = CommonViewHolder.get(convertView, R.id.img_li_cab);
+			TextView tv_li_cab_desc = CommonViewHolder.get(convertView, R.id.tv_li_cab_desc);
+			TextView tv_li_cab_att1 = CommonViewHolder.get(convertView, R.id.tv_li_cab_att1);
+			TextView tv_li_cab_att2 = CommonViewHolder.get(convertView, R.id.tv_li_cab_att2);
+			TextView tv_li_cab_att3 = CommonViewHolder.get(convertView, R.id.tv_li_cab_att3);
+
+			CmListItem item = (CmListItem) getItem(position);
+//			ImageLoader.getInstance().dis
+			tv_li_cab_desc.setText(item.getItemText(R.id.tv_li_cab_desc));
+			tv_li_cab_att1.setText(item.getItemText(R.id.tv_li_cab_att1));
+			tv_li_cab_att2.setText(item.getItemText(R.id.tv_li_cab_att2));
+			tv_li_cab_att3.setText(item.getItemText(R.id.tv_li_cab_att3));
+			
+			return convertView;
+		}
+		
+		
+		
+}
 
 }

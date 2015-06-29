@@ -9,7 +9,7 @@ import android.util.DisplayMetrics;
 
 import com.jacktao.utils.JackWindowTitleManager;
 import com.weixun.cn.util.ImageLoaderHelper;
-
+@Deprecated
 public class MyApplication extends Application{
 
 	static MyApplication app;

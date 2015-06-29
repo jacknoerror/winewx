@@ -18,13 +18,13 @@ import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.easemob.chatuidemo.DemoApplication;
+import com.weixun.cn.Const;
 
 public class MyJsonRequest extends Request<JSONObject>{
-	public static final String BASE_URL = "http://120.26.105.250:8080/RedWine/";
 	private Map<String, String> mMap;
     private Listener<JSONObject> mListener;
     public MyJsonRequest(String url, Map<String, String> map, Listener<JSONObject> listener,ErrorListener errorListener) {
-        super(Request.Method.POST, BASE_URL+url, errorListener);             
+        super(Request.Method.POST, Const.URL_BASE+url, errorListener);             
         mListener = listener;
         mMap = map;
     }

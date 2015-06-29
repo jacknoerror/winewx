@@ -7,8 +7,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import com.weixun.cn.customview.MyShareDialog;
+
 import com.easemob.chatuidemo.activity.MainActivity;
+import com.easemob.chatuidemo.activity.MainActivity.OkListAdapter;
 import com.hm.view.pullview.HmPullToRefreshView;
 import com.hm.view.pullview.HmPullToRefreshView.OnFooterLoadListener;
 import com.hm.view.pullview.HmPullToRefreshView.OnHeaderRefreshListener;
@@ -16,7 +17,6 @@ import com.weixun.cn.R;
 import com.weixun.cn.bean.CmListItem;
 import com.weixun.cn.customview.MyShareDialog;
 import com.weixun.cn.ui.ContentAbstractFragment;
-import com.weixun.cn.ui.HubActivity.OkListAdapter;
 
 /**
  * 酒柜

@@ -9,7 +9,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -17,7 +16,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -25,20 +23,19 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.easemob.chatuidemo.activity.MainActivity;
+import com.easemob.chatuidemo.activity.MainActivity.OkListAdapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jacktao.ui.custom.getter.ViewPagerGetter;
 import com.jacktao.ui.custom.getter.ViewPagerGetter.IvInVpImpl;
 import com.jacktao.utils.JackUtils;
+import com.weixun.cn.Const;
 import com.weixun.cn.R;
 import com.weixun.cn.bean.CmListItem;
 import com.weixun.cn.bean.SpaceTalkDto;
-import com.weixun.cn.bean.UserInfo;
 import com.weixun.cn.ui.ContentAbstractFragment;
-import com.weixun.cn.ui.HubActivity;
-import com.weixun.cn.ui.SearchActivity;
-import com.weixun.cn.ui.HubActivity.OkListAdapter;
 import com.weixun.cn.ui.MyPortal;
+import com.weixun.cn.ui.SearchActivity;
 import com.weixun.cn.util.MyJsonRequest;
 
 /**
@@ -56,7 +53,7 @@ public class TabMain extends ContentAbstractFragment {
 	private Button btnMsgFrd;
 	private Button btnMsgAll;
 	private TextView index_news;
-	private List<SpaceTalkDto> takList;
+	private List<CmListItem> takList;
 
 	@Override
 	public int getLayoutRid() {
@@ -150,7 +147,7 @@ public class TabMain extends ContentAbstractFragment {
 		params.put("pageNo", "1");
 		String actionName = "app/spaceTalk/list";
 		RequestQueue mRequestQueue = Volley.newRequestQueue(getActivity());
-		mRequestQueue.add(new MyJsonRequest(actionName,
+		MyJsonRequest request = new MyJsonRequest(actionName,
 				params, new Response.Listener<JSONObject>() {
 
 			@Override
@@ -164,7 +161,27 @@ public class TabMain extends ContentAbstractFragment {
 				JackUtils.showToast(getActivity(), error.getMessage());
 
 			}
-		}));
+		});
+		
+		actionName = "app/spaceReply/loadUserUnreadCount";
+		params.clear();
+		MyJsonRequest request0 = new MyJsonRequest(actionName,
+				params, new Response.Listener<JSONObject>() {
+
+			@Override
+			public void onResponse(JSONObject response) {
+				JSONObject job = response.optJSONObject("result");
+				loadData0(job);
+			}
+		}, new Response.ErrorListener() {
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				JackUtils.showToast(getActivity(), error.getMessage());
+
+			}
+		});
+		mRequestQueue.add(request);
+		mRequestQueue.add(request0);
 //		loadData();
 	}
 
@@ -174,24 +191,9 @@ public class TabMain extends ContentAbstractFragment {
 	 * @param jar 
 	 */
 	private void loadData(JSONArray jar) {
-		// TODO Auto-generated method stub
-		//顶部滑动图片数据 FIXME 造数据
-		TempTopPic[] tps = new TempTopPic[3];
-//		for(int i=0;i<tps.length;i++){
-//			tps[i] = new TempTopPic("https://www.baidu.com/img/bdlogo.png", null);
-//		}
-		tps[0] = new TempTopPic("https://www.baidu.com/img/bdlogo.png", null);
-		tps[1] = new TempTopPic("http://image.zcool.com.cn/59/54/m_1303967870670.jpg", null);
-		tps[2] = new TempTopPic("http://image.zcool.com.cn/47/19/1280115949992.jpg", null);
-		vpGet.setup(tps);
-		//新消息栏
-//		if(新消息>0){TODO
-		index_news.setVisibility(View.VISIBLE);
-		index_news.setText("几条新消息");
-//		}end if	TODO else View.INVISIBLE
 		//更新列表
 		//TODO
-		takList = new ArrayList<SpaceTalkDto>();
+		takList = new ArrayList<CmListItem>();
 		for(int i=0;i<jar.length();i++){
 			JSONObject job = jar.optJSONObject(i);
 			Gson gson = new GsonBuilder()  
@@ -200,14 +202,48 @@ public class TabMain extends ContentAbstractFragment {
 			SpaceTalkDto takDto = gson.fromJson(job.toString(), SpaceTalkDto.class);
 			takList.add(takDto);
 		}
-		/*ArrayList<CmListItem> dataList = new ArrayList<CmListItem>();
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());
-		dataList.add(new CmListItem());*/
-//		mList.setAdapter(new OkListAdapter(takList,(MainActivity)getActivity()));//
-//		mList.setAdapter(new OkListAdapter(dataList,(HubActivity)getActivity()));
+		mList.setAdapter(new OkListAdapter(takList,(MainActivity)getActivity()));//
 		
+	}
+
+
+	private void loadData0(JSONObject job) {
+		// TODO Auto-generated method stub
+		//顶部滑动图片数据 FIXME 造数据
+		JSONArray advs = job.optJSONArray("advs");
+		TempTopPic[] tps = new TempTopPic[advs.length()];
+		
+		for(int i=0;i<tps.length;i++){
+			final JSONObject advJob = advs.optJSONObject(i);
+			tps[i] = new TempTopPic(Const.URL_BASE+Const.URL_IMG_MIDPATH+advJob.optString("image"), new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					String url = advJob.optString("advLinkAddress");
+					JackUtils.showToast(getActivity(), url);;
+					
+				}
+			});
+		}
+		/*{
+                "value": "advBody_16",
+                "advLinkAddress": "http://www.baidu.com",
+                "id": 1,
+                "image": "find_2.fw.png",
+                "advName": "advName_73",
+                "type": "forum"
+            }*/
+//		tps[0] = new TempTopPic("https://www.baidu.com/img/bdlogo.png", null);
+//		tps[1] = new TempTopPic("http://image.zcool.com.cn/59/54/m_1303967870670.jpg", null);
+//		tps[2] = new TempTopPic("http://image.zcool.com.cn/47/19/1280115949992.jpg", null);
+		vpGet.setup(tps);
+		//新消息栏
+		int unread = job.optInt("unreadCount");
+		if(unread>0){
+		index_news.setVisibility(View.VISIBLE);
+		index_news.setText(unread+"条新消息");
+		}else index_news.setVisibility(View.INVISIBLE);
 	}
 
 	/**

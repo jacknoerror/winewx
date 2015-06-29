@@ -10,6 +10,8 @@ public class Const {
 	public static final String EXTRA_EDITACTI_CUR = "editdef";
 	public static final String EXTRA_EXRGB = "exrgb";
 	public static final boolean UPLOAD_HD = false;//XXX
+	public static final String URL_BASE = "http://120.26.105.250:8080/RedWine/";
+	public static final String URL_IMG_MIDPATH = "resources/admin/store/";
 	
 	//
 
